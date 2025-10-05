@@ -22,59 +22,69 @@
     <meta name="twitter:image" content="./assets/images/Couple Gallery 2.jpg">
 
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="./assets/audio/Magical.mp3" as="audio">
     <link rel="preload" href="./assets/images/Hero Image.jpg" as="image">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Nature Garden Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
         /* ===================================
-           PHASE 1: FOUNDATION - GRID SYSTEM
+           NATURE GARDEN WEDDING INVITATION
+           Color Palette: Sage, Terracotta, Cream, Forest Green
            =================================== */
 
-        /* CSS Variables - Monochrome Palette */
+        /* CSS Variables - Nature Garden Palette */
         :root {
-            --black: #161616;
-            --near-black: #161616;
-            --medium-gray: #8A8A8A;
-            --light-gray: #A5A5A5;
-            --dark-charcoal: #1C1C1C;
-            --warm-dark-gray: #4C4646;
+            /* Primary Colors */
+            --sage-green: #8B9D83;
+            --sage-green-light: #A8B99C;
+            --terracotta: #C87E5C;
+            --terracotta-light: #E09F7D;
+            --cream: #F5F1E8;
+            --ivory: #FFFEF2;
+            --forest-green: #2D4A3E;
+            --forest-green-medium: #3D5A4F;
+            --warm-brown: #8B7355;
+            --warm-brown-light: #A68968;
+            --soft-peach: #F4D5C6;
+            --soft-peach-light: #FFE5D9;
 
-            /* Gradients */
-            --silver: linear-gradient(135deg, #A5A5A5 0%, #FFFFFF 50%, #A5A5A5 100%);
-            --chrome: linear-gradient(135deg, #A5A5A5 0%, #FFFFFF 35%, #8A8A8A 50%, #FFFFFF 65%, #A5A5A5 100%);
-
-            /* Grid System */
-            --grid-columns: 12;
-            --grid-gap-mobile: 16px;
-            --grid-gap-tablet: 24px;
-            --grid-gap-desktop: 32px;
-            --container-max: 1440px;
+            /* Accent Colors */
+            --olive: #6B7C59;
+            --clay: #B8654F;
+            --sand: #E8DCC4;
+            --moss: #5A6B4F;
 
             /* Typography */
-            --font-serif: 'Cormorant Garamond', serif;
-            --font-script: 'Great Vibes', cursive;
-            --font-sans: 'Montserrat', sans-serif;
+            --font-serif: 'Crimson Text', serif;
+            --font-script: 'Dancing Script', cursive;
+            --font-sans: 'Lato', sans-serif;
 
-            /* Spacing */
+            /* Spacing System */
             --space-xs: 8px;
             --space-sm: 16px;
             --space-md: 24px;
             --space-lg: 32px;
             --space-xl: 48px;
             --space-xxl: 64px;
+            --space-xxxl: 96px;
 
             /* Animation */
             --transition-fast: 0.2s ease;
             --transition-medium: 0.4s ease;
-            --transition-slow: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+            /* Grid System */
+            --grid-gap-mobile: 16px;
+            --grid-gap-tablet: 24px;
+            --grid-gap-desktop: 32px;
         }
 
         /* Reset & Base Styles */
@@ -91,1045 +101,837 @@
 
         body {
             font-family: var(--font-sans);
-            background: var(--black);
-            color: var(--light-gray);
+            background: var(--cream);
+            color: var(--forest-green);
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
+            line-height: 1.6;
         }
 
         /* ===================================
-           PHASE 2: ARTISTIC WALLPAPERS
+           WATERCOLOR BACKGROUND SYSTEM
            =================================== */
 
-        /* Layered Background System */
+        /* Layer 1: Base Watercolor Gradient */
         body::before {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -3;
+            width: 100%;
+            height: 100%;
             background:
-                /* Layer 1: Radial gradient overlay */
-                radial-gradient(circle at 20% 30%, rgba(76, 70, 70, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(138, 138, 138, 0.2) 0%, transparent 50%),
-                /* Layer 2: Base gradient */
-                linear-gradient(135deg, #161616 0%, #1C1C1C 50%, #161616 100%);
+                radial-gradient(circle at 20% 30%, rgba(139, 157, 131, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(200, 126, 92, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(61, 90, 79, 0.08) 0%, transparent 60%),
+                linear-gradient(135deg, var(--ivory) 0%, var(--cream) 50%, var(--sand) 100%);
+            z-index: -3;
+            animation: watercolor-flow 20s ease-in-out infinite;
         }
 
-        /* Circuit Board Pattern */
+        @keyframes watercolor-flow {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.05);
+            }
+        }
+
+        /* Layer 2: Paper Grain Texture */
         body::after {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -2;
-            background-image:
-                /* Horizontal lines */
-                repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(138, 138, 138, 0.1) 80px, rgba(138, 138, 138, 0.1) 81px),
-                /* Vertical lines */
-                repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(138, 138, 138, 0.1) 80px, rgba(138, 138, 138, 0.1) 81px);
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
             opacity: 0.5;
-        }
-
-        /* Noise Texture Overlay */
-        .noise-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
-            opacity: 0.08;
-            mix-blend-mode: overlay;
-            pointer-events: none;
-        }
-
-        /* Voronoi-inspired Geometric Pattern */
-        .geometric-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            mix-blend-mode: multiply;
             z-index: -2;
-            opacity: 0.03;
-            background-image:
-                polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            clip-path: polygon(
-                30% 10%, 70% 10%, 90% 30%, 90% 70%, 70% 90%, 30% 90%, 10% 70%, 10% 30%
-            );
-        }
-
-        /* Scanline Effect */
-        .scanlines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 998;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.05) 0px,
-                transparent 1px,
-                transparent 2px,
-                rgba(0, 0, 0, 0.05) 3px
-            );
             pointer-events: none;
-            animation: scanline-move 8s linear infinite;
         }
 
-        @keyframes scanline-move {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(4px); }
+        /* Organic Blob Decorations */
+        .watercolor-blob {
+            position: fixed;
+            border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
+            filter: blur(60px);
+            opacity: 0.3;
+            z-index: -1;
+            animation: blob-float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--sage-green-light), transparent);
+            top: -100px;
+            left: -100px;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--terracotta-light), transparent);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: -8s;
+        }
+
+        .blob-3 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--soft-peach), transparent);
+            top: 40%;
+            right: -100px;
+            animation-delay: -15s;
+        }
+
+        @keyframes blob-float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, -30px) scale(1.1) rotate(10deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9) rotate(-10deg);
+            }
         }
 
         /* ===================================
-           12-COLUMN RESPONSIVE GRID
+           CONTAINER & GRID SYSTEM
            =================================== */
 
         .container {
             width: 100%;
-            max-width: var(--container-max);
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--space-sm);
+            padding: 0 var(--space-md);
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Mobile: 4 columns */
+            grid-template-columns: repeat(4, 1fr);
             gap: var(--grid-gap-mobile);
-            width: 100%;
         }
 
-        /* Column Spans - Mobile (4 columns) */
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(8, 1fr);
+                gap: var(--grid-gap-tablet);
+            }
+            .container {
+                padding: 0 var(--space-lg);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(12, 1fr);
+                gap: var(--grid-gap-desktop);
+            }
+        }
+
+        /* Grid Column Spans */
+        .col-full { grid-column: 1 / -1; }
         .col-1 { grid-column: span 1; }
         .col-2 { grid-column: span 2; }
         .col-3 { grid-column: span 3; }
         .col-4 { grid-column: span 4; }
 
-        /* Tablet Breakpoint (768px+) - 8 columns */
         @media (min-width: 768px) {
-            .container {
-                padding: 0 var(--space-md);
-            }
-
-            .grid {
-                grid-template-columns: repeat(8, 1fr);
-                gap: var(--grid-gap-tablet);
-            }
-
-            .col-md-1 { grid-column: span 1; }
-            .col-md-2 { grid-column: span 2; }
-            .col-md-3 { grid-column: span 3; }
-            .col-md-4 { grid-column: span 4; }
-            .col-md-5 { grid-column: span 5; }
             .col-md-6 { grid-column: span 6; }
-            .col-md-7 { grid-column: span 7; }
             .col-md-8 { grid-column: span 8; }
+            .col-md-center { grid-column: 2 / 8; }
         }
 
-        /* Desktop Breakpoint (1024px+) - 12 columns */
         @media (min-width: 1024px) {
-            .container {
-                padding: 0 var(--space-lg);
-            }
-
-            .grid {
-                grid-template-columns: repeat(12, 1fr);
-                gap: var(--grid-gap-desktop);
-            }
-
-            .col-lg-1 { grid-column: span 1; }
-            .col-lg-2 { grid-column: span 2; }
-            .col-lg-3 { grid-column: span 3; }
-            .col-lg-4 { grid-column: span 4; }
-            .col-lg-5 { grid-column: span 5; }
             .col-lg-6 { grid-column: span 6; }
-            .col-lg-7 { grid-column: span 7; }
             .col-lg-8 { grid-column: span 8; }
-            .col-lg-9 { grid-column: span 9; }
             .col-lg-10 { grid-column: span 10; }
-            .col-lg-11 { grid-column: span 11; }
             .col-lg-12 { grid-column: span 12; }
+            .col-lg-center { grid-column: 3 / 11; }
         }
 
         /* ===================================
-           PHASE 4: PREMIUM ENVELOPE ANIMATION
+           TYPOGRAPHY SYSTEM
            =================================== */
 
-        .envelope-scene {
-            position: fixed;
-            top: 0;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--forest-green);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: var(--space-md);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            margin-bottom: var(--space-sm);
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.8;
+            margin-bottom: var(--space-sm);
+            color: var(--forest-green-medium);
+        }
+
+        .script-text {
+            font-family: var(--font-script);
+            font-weight: 400;
+            color: var(--terracotta);
+        }
+
+        .serif-text {
+            font-family: var(--font-serif);
+        }
+
+        /* ===================================
+           BOTANICAL SVG ILLUSTRATIONS
+           =================================== */
+
+        .botanical-decoration {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .leaf-left {
+            top: 20px;
             left: 0;
+            width: 150px;
+            animation: sway-left 8s ease-in-out infinite;
+        }
+
+        .leaf-right {
+            top: 20px;
+            right: 0;
+            width: 150px;
+            animation: sway-right 8s ease-in-out infinite;
+            animation-delay: -2s;
+        }
+
+        .vine-decoration {
             width: 100%;
-            height: 100%;
-            z-index: 9999;
-            background: linear-gradient(135deg, #161616 0%, #1C1C1C 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: envelope-scene-fade 5s forwards;
+            height: auto;
+            animation: vine-grow 2s ease-out forwards;
         }
 
-        @keyframes envelope-scene-fade {
-            0%, 70% { opacity: 1; pointer-events: all; }
-            100% { opacity: 0; pointer-events: none; }
+        @keyframes sway-left {
+            0%, 100% {
+                transform: rotate(0deg) translateX(0);
+            }
+            50% {
+                transform: rotate(-5deg) translateX(-10px);
+            }
         }
 
-        .envelope-container {
-            position: relative;
-            width: min(400px, 80vw);
-            height: min(280px, 56vw);
-            transform-style: preserve-3d;
-            perspective: 1200px;
-            animation: envelope-entrance 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        @keyframes sway-right {
+            0%, 100% {
+                transform: rotate(0deg) translateX(0);
+            }
+            50% {
+                transform: rotate(5deg) translateX(10px);
+            }
         }
 
-        @keyframes envelope-entrance {
-            0% {
-                transform: translateY(100vh) scale(0.3) rotateX(-45deg);
+        @keyframes vine-grow {
+            from {
                 opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
             }
-            60% {
-                transform: translateY(0) scale(1.05) rotateX(0deg);
+            to {
                 opacity: 1;
-            }
-            100% {
-                transform: translateY(0) scale(1) rotateX(0deg);
-                opacity: 1;
-            }
-        }
-
-        /* Premium SVG Envelope */
-        .envelope-svg {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.8));
-        }
-
-        .envelope-back {
-            fill: var(--dark-charcoal);
-            stroke: var(--medium-gray);
-            stroke-width: 2;
-        }
-
-        .envelope-flap {
-            fill: var(--warm-dark-gray);
-            stroke: var(--medium-gray);
-            stroke-width: 2;
-            transform-origin: 50% 0%;
-            animation: flap-open 1.5s 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-        }
-
-        @keyframes flap-open {
-            0% { transform: rotateX(0deg); }
-            100% { transform: rotateX(-180deg); }
-        }
-
-        .wax-seal {
-            animation: seal-break 0.5s 2.3s forwards;
-        }
-
-        @keyframes seal-break {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(1.5); opacity: 0; }
-        }
-
-        .envelope-emboss {
-            fill: none;
-            stroke: var(--light-gray);
-            stroke-width: 1;
-            opacity: 0.3;
-        }
-
-        .card-peek {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: card-emerge 1s 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-
-        @keyframes card-emerge {
-            0% {
-                opacity: 0;
-                transform: translateY(20px) scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(-30px) scale(1);
+                transform: scaleY(1);
             }
         }
 
         /* ===================================
-           PHASE 3: 3D CARD SYSTEM
+           CARD SYSTEM - ORGANIC STYLE
            =================================== */
 
-        .scene-3d {
-            width: 100%;
+        .invitation-wrapper {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            perspective: 2000px;
             padding: var(--space-xl) 0;
             position: relative;
-            opacity: 0;
-            animation: scene-fade-in 1s 4.5s forwards;
         }
 
-        @keyframes scene-fade-in {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        .card-3d-container {
-            width: 100%;
-            max-width: 900px;
-            aspect-ratio: 3/4;
+        .invitation-card {
+            background: linear-gradient(135deg,
+                rgba(255, 254, 242, 0.95) 0%,
+                rgba(245, 241, 232, 0.98) 100%);
+            border-radius: 20px;
+            padding: var(--space-xxl) var(--space-lg);
+            box-shadow:
+                0 20px 60px rgba(45, 74, 62, 0.15),
+                0 8px 20px rgba(45, 74, 62, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
             position: relative;
-            transform-style: preserve-3d;
-            animation: float-3d 6s ease-in-out infinite;
+            overflow: hidden;
+            border: 2px solid rgba(139, 157, 131, 0.2);
+            backdrop-filter: blur(10px);
+            animation: card-entrance 1.2s var(--bounce);
+            max-width: 900px;
+            width: 100%;
+            margin: 0 var(--space-md);
         }
 
-        @keyframes float-3d {
-            0%, 100% {
-                transform: translateY(0) rotateX(2deg) rotateY(-2deg);
+        @keyframes card-entrance {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
             }
-            50% {
-                transform: translateY(-20px) rotateX(-2deg) rotateY(2deg);
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
             }
         }
 
-        .card-3d {
+        /* Paper texture overlay on card */
+        .invitation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperTexture'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='5' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperTexture)' opacity='0.03'/%3E%3C/svg%3E");
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .invitation-card > * {
             position: relative;
-            transform-style: preserve-3d;
-            transition: transform var(--transition-slow);
-            cursor: pointer;
+            z-index: 2;
         }
 
-        .card-3d.flipped {
-            transform: rotateY(180deg);
-        }
-
-        .card-face {
+        /* Floral border decoration */
+        .card-border-decoration {
             position: absolute;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.8),
-                0 0 0 1px rgba(165, 165, 165, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            top: 0;
+            left: 0;
+            border: 3px solid transparent;
+            border-radius: 20px;
+            background:
+                linear-gradient(var(--ivory), var(--ivory)) padding-box,
+                linear-gradient(135deg,
+                    var(--sage-green-light),
+                    var(--terracotta-light),
+                    var(--soft-peach),
+                    var(--sage-green-light)
+                ) border-box;
+            opacity: 0.3;
+            z-index: 0;
         }
 
         /* ===================================
-           GLASSMORPHISM 2.0
+           HEADER SECTION
            =================================== */
 
-        .card-front {
-            background:
-                linear-gradient(135deg,
-                    rgba(22, 22, 22, 0.95) 0%,
-                    rgba(76, 70, 70, 0.92) 50%,
-                    rgba(28, 28, 28, 0.95) 100%
-                );
-            backdrop-filter: blur(40px) saturate(180%);
-            border: 1px solid rgba(165, 165, 165, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: var(--space-xl);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Holographic Shimmer Effect */
-        .card-front::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                135deg,
-                transparent 0%,
-                rgba(165, 165, 165, 0.1) 40%,
-                rgba(255, 255, 255, 0.3) 50%,
-                rgba(165, 165, 165, 0.1) 60%,
-                transparent 100%
-            );
-            background-size: 200% 200%;
-            animation: holographic-shimmer 8s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes holographic-shimmer {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        /* Decorative Frame */
-        .card-front::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border: 1px solid rgba(165, 165, 165, 0.2);
-            border-radius: 15px;
-            pointer-events: none;
-        }
-
-        .card-back {
-            background:
-                linear-gradient(135deg,
-                    rgba(28, 28, 28, 0.98) 0%,
-                    rgba(22, 22, 22, 0.98) 100%
-                );
-            backdrop-filter: blur(40px) saturate(180%);
-            border: 1px solid rgba(165, 165, 165, 0.2);
-            transform: rotateY(180deg);
-            padding: var(--space-lg);
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* Art Deco Corner Ornaments */
-        .art-deco-corner {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .corner-top-left {
-            top: 30px;
-            left: 30px;
-            border-top: 2px solid var(--medium-gray);
-            border-left: 2px solid var(--medium-gray);
-        }
-
-        .corner-top-left::before {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 2px;
-            top: 12px;
-            left: 0;
-            background: var(--medium-gray);
-        }
-
-        .corner-top-left::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 25px;
-            top: 0;
-            left: 12px;
-            background: var(--medium-gray);
-        }
-
-        .corner-top-right {
-            top: 30px;
-            right: 30px;
-            border-top: 2px solid var(--medium-gray);
-            border-right: 2px solid var(--medium-gray);
-        }
-
-        .corner-top-right::before {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 2px;
-            top: 12px;
-            right: 0;
-            background: var(--medium-gray);
-        }
-
-        .corner-top-right::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 25px;
-            top: 0;
-            right: 12px;
-            background: var(--medium-gray);
-        }
-
-        .corner-bottom-left {
-            bottom: 30px;
-            left: 30px;
-            border-bottom: 2px solid var(--medium-gray);
-            border-left: 2px solid var(--medium-gray);
-        }
-
-        .corner-bottom-left::before {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 2px;
-            bottom: 12px;
-            left: 0;
-            background: var(--medium-gray);
-        }
-
-        .corner-bottom-left::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 25px;
-            bottom: 0;
-            left: 12px;
-            background: var(--medium-gray);
-        }
-
-        .corner-bottom-right {
-            bottom: 30px;
-            right: 30px;
-            border-bottom: 2px solid var(--medium-gray);
-            border-right: 2px solid var(--medium-gray);
-        }
-
-        .corner-bottom-right::before {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 2px;
-            bottom: 12px;
-            right: 0;
-            background: var(--medium-gray);
-        }
-
-        .corner-bottom-right::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 25px;
-            bottom: 0;
-            right: 12px;
-            background: var(--medium-gray);
-        }
-
-        /* Card Front Content */
-        .front-content {
+        .invitation-header {
             text-align: center;
-            z-index: 5;
+            margin-bottom: var(--space-xxl);
             position: relative;
         }
 
-        .front-names {
+        .couple-names {
+            font-size: clamp(3rem, 7vw, 5.5rem);
             font-family: var(--font-script);
-            font-size: clamp(3rem, 8vw, 6rem);
-            background: var(--chrome);
+            background: linear-gradient(135deg,
+                var(--terracotta) 0%,
+                var(--warm-brown) 50%,
+                var(--terracotta-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: var(--space-sm);
-            letter-spacing: 2px;
-            animation: glitch 8s infinite;
+            line-height: 1.1;
+            animation: name-shimmer 3s ease-in-out infinite;
         }
 
-        @keyframes glitch {
-            0%, 95%, 100% {
-                transform: translate(0);
-                filter: hue-rotate(0deg);
-            }
-            96% {
-                transform: translate(-2px, 2px);
-                filter: hue-rotate(10deg);
-            }
-            97% {
-                transform: translate(2px, -2px);
-                filter: hue-rotate(-10deg);
-            }
-            98% {
-                transform: translate(-1px, 1px);
-                filter: hue-rotate(5deg);
-            }
-            99% {
-                transform: translate(1px, -1px);
-                filter: hue-rotate(-5deg);
-            }
+        @keyframes name-shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
         }
 
-        .front-ampersand {
-            font-family: var(--font-script);
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            color: var(--light-gray);
-            margin: var(--space-sm) 0;
+        .ampersand {
+            display: inline-block;
+            font-size: 0.8em;
+            margin: 0 var(--space-sm);
+            animation: rotate-gentle 6s ease-in-out infinite;
         }
 
-        .front-date {
+        @keyframes rotate-gentle {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .invitation-subtitle {
             font-family: var(--font-serif);
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            color: var(--light-gray);
-            font-weight: 300;
-            letter-spacing: 3px;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-style: italic;
+            color: var(--sage-green);
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            margin-top: var(--space-md);
+            margin-bottom: var(--space-lg);
         }
 
-        .front-location {
-            font-family: var(--font-sans);
-            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-            color: var(--medium-gray);
-            font-weight: 300;
-            margin-top: var(--space-sm);
-            letter-spacing: 2px;
+        .wedding-date {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            color: var(--forest-green);
+            margin-bottom: var(--space-xs);
         }
 
-        /* Countdown Timer */
-        .countdown-container {
-            margin-top: var(--space-xl);
-            display: flex;
-            gap: var(--space-md);
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .countdown-unit {
-            background: rgba(22, 22, 22, 0.6);
-            backdrop-filter: blur(20px);
-            padding: var(--space-sm) var(--space-md);
-            border-radius: 12px;
-            border: 1px solid rgba(165, 165, 165, 0.2);
-            text-align: center;
-            min-width: 80px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            }
-            50% {
-                box-shadow: 0 8px 30px rgba(165, 165, 165, 0.3);
-            }
-        }
-
-        .countdown-number {
-            font-family: var(--font-sans);
-            font-size: 2rem;
-            font-weight: 700;
-            background: var(--silver);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-        }
-
-        .countdown-label {
-            font-family: var(--font-sans);
-            font-size: 0.7rem;
-            color: var(--medium-gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 4px;
-        }
-
-        /* Card Back Content */
-        .back-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .detail-section {
-            margin-bottom: var(--space-xl);
+        /* Divider with floral accent */
+        .floral-divider {
+            width: 200px;
+            height: 60px;
+            margin: var(--space-lg) auto;
             position: relative;
-            padding-bottom: var(--space-lg);
         }
 
-        .detail-section::after {
+        .floral-divider::before,
+        .floral-divider::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
             width: 80px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--medium-gray), transparent);
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--sage-green), transparent);
+            top: 50%;
         }
 
-        .detail-section:last-child::after {
-            display: none;
+        .floral-divider::before {
+            left: 0;
         }
 
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 1.6rem;
-            color: var(--light-gray);
-            text-align: center;
+        .floral-divider::after {
+            right: 0;
+        }
+
+        .floral-divider svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+        }
+
+        /* ===================================
+           EVENT DETAILS SECTION
+           =================================== */
+
+        .event-details {
+            margin: var(--space-xxl) 0;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            padding: var(--space-lg);
             margin-bottom: var(--space-md);
-            letter-spacing: 2px;
-            background: var(--silver);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            border: 2px solid rgba(139, 157, 131, 0.2);
+            box-shadow: 0 4px 20px rgba(45, 74, 62, 0.08);
+            transition: all var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(168, 185, 156, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(45, 74, 62, 0.15);
+            border-color: var(--sage-green-light);
+        }
+
+        .detail-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto var(--space-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: var(--space-sm);
+            font-size: 2rem;
+            color: var(--terracotta);
+            animation: icon-pulse 2s ease-in-out infinite;
         }
 
-        .section-icon {
-            width: 32px;
-            height: 32px;
-            filter: brightness(1.5);
+        @keyframes icon-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
-        /* Visual Timeline */
-        .timeline-container {
+        .detail-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--forest-green);
+            margin-bottom: var(--space-xs);
+            text-align: center;
+        }
+
+        .detail-content {
+            text-align: center;
+            color: var(--forest-green-medium);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .detail-time {
+            font-weight: 700;
+            color: var(--terracotta);
+        }
+
+        /* ===================================
+           TIMELINE SECTION
+           =================================== */
+
+        .timeline-section {
+            margin: var(--space-xxl) 0;
+            padding: var(--space-xl) 0;
             position: relative;
-            padding-left: 50px;
-            margin-top: var(--space-lg);
         }
 
-        .timeline-line {
+        .timeline-title {
+            text-align: center;
+            font-family: var(--font-script);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--terracotta);
+            margin-bottom: var(--space-xl);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: var(--space-md) 0;
+        }
+
+        .timeline::before {
+            content: '';
             position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg,
-                var(--light-gray) 0%,
-                var(--medium-gray) 50%,
-                var(--warm-dark-gray) 100%
-            );
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                var(--sage-green-light),
+                var(--terracotta-light),
+                var(--sage-green-light));
+            border-radius: 2px;
+        }
+
+        @media (max-width: 767px) {
+            .timeline::before {
+                left: 20px;
+            }
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: var(--space-lg);
-            padding-left: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            animation: timeline-fade-in 0.8s ease-out forwards;
+            opacity: 0;
         }
 
-        .timeline-dot {
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes timeline-fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.8);
+            padding: var(--space-lg);
+            border-radius: 12px;
+            border: 2px solid rgba(139, 157, 131, 0.2);
+            box-shadow: 0 4px 15px rgba(45, 74, 62, 0.1);
+            position: relative;
+            width: calc(50% - 40px);
+            transition: all var(--transition-medium);
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(45, 74, 62, 0.15);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        @media (max-width: 767px) {
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+        }
+
+        .timeline-marker {
             position: absolute;
-            left: -36px;
-            top: 8px;
-            width: 14px;
-            height: 14px;
+            left: 50%;
+            transform: translate(-50%, 10px);
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--terracotta), var(--terracotta-light));
+            border: 4px solid var(--ivory);
             border-radius: 50%;
-            background: var(--light-gray);
-            border: 3px solid var(--dark-charcoal);
-            box-shadow: 0 0 12px rgba(165, 165, 165, 0.6);
             z-index: 2;
+            box-shadow: 0 0 0 4px rgba(200, 126, 92, 0.2);
+            animation: marker-pulse 2s ease-in-out infinite;
         }
 
-        .timeline-item.ceremony .timeline-dot {
-            width: 18px;
-            height: 18px;
-            left: -38px;
-            background: var(--chrome);
-            box-shadow: 0 0 20px rgba(165, 165, 165, 0.9);
-            animation: pulse-dot 2s ease-in-out infinite;
+        @media (max-width: 767px) {
+            .timeline-marker {
+                left: 20px;
+                transform: translateX(-50%);
+            }
         }
 
-        @keyframes pulse-dot {
+        @keyframes marker-pulse {
             0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 20px rgba(165, 165, 165, 0.9);
+                transform: translate(-50%, 10px) scale(1);
+                box-shadow: 0 0 0 4px rgba(200, 126, 92, 0.2);
             }
             50% {
-                transform: scale(1.15);
-                box-shadow: 0 0 30px rgba(165, 165, 165, 1);
+                transform: translate(-50%, 10px) scale(1.1);
+                box-shadow: 0 0 0 8px rgba(200, 126, 92, 0.1);
             }
         }
 
         .timeline-time {
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--light-gray);
-            margin-bottom: 4px;
-        }
-
-        .timeline-item.ceremony .timeline-time {
-            font-size: 1.4rem;
-            background: var(--chrome);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--terracotta);
+            margin-bottom: var(--space-xs);
         }
 
         .timeline-event {
             font-family: var(--font-serif);
-            font-size: 1.3rem;
-            color: var(--light-gray);
-            margin-bottom: 4px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--forest-green);
+            margin-bottom: var(--space-xs);
         }
 
         .timeline-location {
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            color: var(--medium-gray);
+            font-size: 0.95rem;
+            color: var(--forest-green-medium);
             font-style: italic;
         }
 
-        /* Venue Photo */
-        .venue-photo {
-            width: 100%;
-            max-width: 500px;
-            height: 150px;
-            margin: var(--space-md) auto;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--medium-gray);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-        }
+        /* ===================================
+           VENUE SECTION
+           =================================== */
 
-        .venue-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%);
-            opacity: 0.85;
-            transition: all 0.5s ease;
-        }
-
-        .venue-photo:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        /* Dress Code */
-        .dress-code-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-md);
-            margin-top: var(--space-md);
-        }
-
-        .dress-code-item {
-            background: rgba(22, 22, 22, 0.4);
-            padding: var(--space-md);
-            border-radius: 12px;
-            border: 1px solid rgba(165, 165, 165, 0.1);
+        .venue-section {
+            margin: var(--space-xxl) 0;
             text-align: center;
         }
 
-        .dress-code-category {
-            font-family: var(--font-sans);
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--light-gray);
+        .venue-title {
+            font-family: var(--font-script);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--terracotta);
+            margin-bottom: var(--space-lg);
+        }
+
+        .venue-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: var(--space-xl);
+            border: 2px solid rgba(139, 157, 131, 0.2);
+            box-shadow: 0 10px 40px rgba(45, 74, 62, 0.12);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .venue-name {
+            font-family: var(--font-serif);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: var(--forest-green);
             margin-bottom: var(--space-sm);
         }
 
-        .dress-code-description {
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            color: var(--medium-gray);
+        .venue-address {
+            font-size: 1.125rem;
+            color: var(--forest-green-medium);
+            margin-bottom: var(--space-md);
             line-height: 1.6;
         }
 
-        /* RSVP Section */
-        .rsvp-content {
-            text-align: center;
+        .venue-link {
+            display: inline-block;
+            margin-top: var(--space-md);
+            padding: var(--space-sm) var(--space-lg);
+            background: linear-gradient(135deg, var(--sage-green), var(--sage-green-light));
+            color: white;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(139, 157, 131, 0.3);
+            transition: all var(--transition-medium);
+            border: 2px solid transparent;
         }
 
-        .rsvp-text {
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            color: var(--medium-gray);
-            line-height: 1.8;
+        .venue-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(139, 157, 131, 0.4);
+            background: linear-gradient(135deg, var(--sage-green-light), var(--sage-green));
+        }
+
+        /* ===================================
+           RSVP SECTION
+           =================================== */
+
+        .rsvp-section {
+            margin: var(--space-xxl) 0;
+            text-align: center;
+            padding: var(--space-xl) var(--space-md);
+            background: linear-gradient(135deg,
+                rgba(168, 185, 156, 0.15),
+                rgba(244, 213, 198, 0.15));
+            border-radius: 20px;
+            border: 2px solid rgba(139, 157, 131, 0.2);
+        }
+
+        .rsvp-title {
+            font-family: var(--font-script);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--terracotta);
+            margin-bottom: var(--space-md);
+        }
+
+        .rsvp-message {
+            font-family: var(--font-serif);
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: var(--forest-green);
             margin-bottom: var(--space-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .rsvp-button {
             display: inline-block;
-            padding: 18px 48px;
-            background: rgba(22, 22, 22, 0.6);
-            border: 2px solid var(--light-gray);
-            border-radius: 50px;
-            color: var(--light-gray);
-            font-family: var(--font-sans);
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: var(--space-md) var(--space-xl);
+            background: linear-gradient(135deg, var(--terracotta), var(--terracotta-light));
+            color: white;
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 700;
             text-decoration: none;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            animation: rsvp-pulse 3s ease-in-out infinite;
+            border-radius: 50px;
+            box-shadow: 0 6px 25px rgba(200, 126, 92, 0.4);
+            transition: all var(--transition-medium);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes rsvp-pulse {
-            0%, 100% {
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-                transform: scale(1);
-            }
-            50% {
-                box-shadow: 0 12px 35px rgba(165, 165, 165, 0.4);
-                transform: scale(1.03);
-            }
+        .rsvp-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .rsvp-button:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .rsvp-button:hover {
-            background: rgba(165, 165, 165, 0.2);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 16px 40px rgba(165, 165, 165, 0.5);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 40px rgba(200, 126, 92, 0.5);
         }
 
         /* ===================================
-           PHASE 5: MOBILE OPTIMIZATIONS
+           FOOTER SECTION
            =================================== */
 
-        /* Flip Instructions */
-        .flip-instructions {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(22, 22, 22, 0.9);
-            backdrop-filter: blur(20px);
-            padding: 12px 28px;
-            border-radius: 30px;
-            border: 1px solid rgba(165, 165, 165, 0.3);
-            z-index: 999;
-            animation: pulse-glow-instructions 2s ease-in-out infinite;
-            transition: opacity 0.3s ease;
-        }
-
-        @keyframes pulse-glow-instructions {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(165, 165, 165, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 35px rgba(165, 165, 165, 0.5);
-            }
-        }
-
-        .flip-instructions.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .flip-instructions p {
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            color: #000000;
+        .invitation-footer {
+            margin-top: var(--space-xxl);
             text-align: center;
-            font-weight: 400;
-            letter-spacing: 1px;
-            margin: 0;
+            padding: var(--space-lg) 0;
+            border-top: 2px solid rgba(139, 157, 131, 0.2);
         }
 
-        /* Music Player */
-        .music-player {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            background: rgba(22, 22, 22, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 12px 20px;
-            border-radius: 30px;
-            border: 1px solid rgba(165, 165, 165, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        .footer-message {
+            font-family: var(--font-script);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--terracotta);
+            margin-bottom: var(--space-sm);
         }
 
-        .music-player:hover {
-            background: rgba(28, 28, 28, 0.95);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-        }
-
-        .music-icon {
-            width: 24px;
-            height: 24px;
-            color: var(--light-gray);
-        }
-
-        .music-text {
+        .footer-hashtag {
             font-family: var(--font-sans);
-            font-size: 0.85rem;
-            color: var(--light-gray);
-            font-weight: 500;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--sage-green);
+            letter-spacing: 0.05em;
         }
 
-        /* Social Share Banner */
-        .social-share {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(165, 165, 165, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 16px;
-            text-align: center;
-            z-index: 998;
-            border-top: 1px solid rgba(138, 138, 138, 0.5);
-        }
+        /* ===================================
+           ACCESSIBILITY & REDUCED MOTION
+           =================================== */
 
-        .social-share p {
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            color: #000000;
-            margin: 0;
-            font-weight: 500;
-        }
-
-        /* Touch-friendly sizing */
-        @media (hover: none) and (pointer: coarse) {
-            .rsvp-button {
-                min-height: 44px;
-                min-width: 200px;
-            }
-
-            .card-3d {
-                cursor: default;
-            }
-        }
-
-        /* Tablet Adjustments */
-        @media (min-width: 768px) {
-            .dress-code-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .countdown-unit {
-                min-width: 100px;
-            }
-
-            .venue-photo {
-                height: 200px;
-            }
-        }
-
-        /* Desktop Enhancements */
-        @media (min-width: 1024px) {
-            .card-3d-container {
-                max-width: 1000px;
-            }
-
-            .flip-instructions p {
-                font-size: 1rem;
-            }
-        }
-
-        /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -1140,395 +942,360 @@
             }
         }
 
-        /* Dark Mode Support */
-        @media (prefers-color-scheme: dark) {
-            /* Already dark by default */
+        /* Focus styles for accessibility */
+        a:focus,
+        button:focus {
+            outline: 3px solid var(--terracotta);
+            outline-offset: 3px;
         }
 
-        /* Print Styles */
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .invitation-card {
+                border: 3px solid var(--forest-green);
+            }
+            .detail-card {
+                border: 2px solid var(--forest-green);
+            }
+        }
+
+        /* ===================================
+           RESPONSIVE ADJUSTMENTS
+           =================================== */
+
+        @media (max-width: 767px) {
+            .invitation-card {
+                padding: var(--space-lg) var(--space-md);
+                margin: 0 var(--space-sm);
+            }
+
+            .couple-names {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
+
+            .floral-divider {
+                width: 150px;
+                height: 40px;
+            }
+
+            .detail-card {
+                padding: var(--space-md);
+            }
+
+            .timeline {
+                padding-left: var(--space-md);
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .invitation-card {
+                padding: var(--space-xl) var(--space-lg);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .invitation-wrapper {
+                padding: var(--space-xxxl) 0;
+            }
+
+            .detail-card {
+                padding: var(--space-xl);
+            }
+        }
+
+        /* ===================================
+           PRINT STYLES
+           =================================== */
+
         @media print {
-            .envelope-scene,
-            .music-player,
-            .flip-instructions,
-            .social-share,
-            .noise-overlay,
-            .scanlines {
-                display: none !important;
+            body {
+                background: white;
             }
 
-            .card-3d {
-                transform: none !important;
+            body::before,
+            body::after,
+            .watercolor-blob {
+                display: none;
             }
 
-            .card-back {
-                transform: none !important;
-                position: relative !important;
-                page-break-before: always;
+            .invitation-card {
+                box-shadow: none;
+                border: 2px solid #ccc;
+            }
+
+            .rsvp-button,
+            .venue-link {
+                border: 2px solid var(--forest-green);
+                background: white;
+                color: var(--forest-green);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Noise Overlay -->
-    <div class="noise-overlay"></div>
+    <!-- Watercolor Blob Decorations -->
+    <div class="watercolor-blob blob-1"></div>
+    <div class="watercolor-blob blob-2"></div>
+    <div class="watercolor-blob blob-3"></div>
 
-    <!-- Scanlines -->
-    <div class="scanlines"></div>
+    <!-- Main Invitation Container -->
+    <div class="invitation-wrapper">
+        <div class="invitation-card">
+            <!-- Card Border Decoration -->
+            <div class="card-border-decoration"></div>
 
-    <!-- PHASE 4: Premium Envelope Animation -->
-    <div class="envelope-scene" id="envelopeScene">
-        <div class="envelope-container">
-            <svg class="envelope-svg" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
-                <!-- Envelope Back -->
-                <rect class="envelope-back" x="10" y="40" width="380" height="230" rx="8"/>
-
-                <!-- Envelope Flap -->
-                <polygon class="envelope-flap" points="200,20 390,120 10,120"/>
-
-                <!-- Embossed Details -->
-                <circle class="envelope-emboss" cx="200" cy="155" r="30"/>
-                <text x="200" y="165" text-anchor="middle" fill="#A5A5A5" font-family="Great Vibes" font-size="24" opacity="0.5">J&C</text>
-
-                <!-- Wax Seal -->
-                <g class="wax-seal">
-                    <circle cx="200" cy="155" r="25" fill="#4C4646" stroke="#8A8A8A" stroke-width="2"/>
-                    <text x="200" y="165" text-anchor="middle" fill="#A5A5A5" font-family="Great Vibes" font-size="20">💍</text>
-                </g>
-
-                <!-- Card Peeking Out -->
-                <g class="card-peek">
-                    <rect x="120" y="140" width="160" height="100" fill="#1C1C1C" stroke="#8A8A8A" stroke-width="1" rx="4"/>
-                    <text x="200" y="185" text-anchor="middle" fill="#A5A5A5" font-family="Great Vibes" font-size="28">Jeremy & Claudia</text>
-                </g>
+            <!-- Botanical Decorations -->
+            <svg class="botanical-decoration leaf-left" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,75 Q40,40 75,10 Q60,50 50,75 Q60,100 75,140 Q40,110 10,75 Z"
+                      fill="none"
+                      stroke="#8B9D83"
+                      stroke-width="2"
+                      opacity="0.6"/>
+                <path d="M20,75 Q45,55 75,30 Q65,65 58,75 Q65,85 75,110 Q45,95 20,75 Z"
+                      fill="#A8B99C"
+                      opacity="0.4"/>
             </svg>
-        </div>
-    </div>
 
-    <!-- PHASE 3: 3D Card Scene -->
-    <div class="scene-3d">
-        <div class="container">
-            <div class="grid">
-                <div class="col-4 col-md-8 col-lg-10" style="grid-column-start: 1; margin: 0 auto;">
-                    <div class="card-3d-container">
-                        <div class="card-3d" id="card3d">
-                            <!-- Card Front -->
-                            <div class="card-face card-front">
-                                <!-- Art Deco Corners -->
-                                <div class="art-deco-corner corner-top-left"></div>
-                                <div class="art-deco-corner corner-top-right"></div>
-                                <div class="art-deco-corner corner-bottom-left"></div>
-                                <div class="art-deco-corner corner-bottom-right"></div>
+            <svg class="botanical-decoration leaf-right" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+                <path d="M140,75 Q110,40 75,10 Q90,50 100,75 Q90,100 75,140 Q110,110 140,75 Z"
+                      fill="none"
+                      stroke="#C87E5C"
+                      stroke-width="2"
+                      opacity="0.6"/>
+                <path d="M130,75 Q105,55 75,30 Q85,65 92,75 Q85,85 75,110 Q105,95 130,75 Z"
+                      fill="#E09F7D"
+                      opacity="0.4"/>
+            </svg>
 
-                                <div class="front-content">
-                                    <div class="front-names">Jeremy & Claudia</div>
-                                    <div class="front-date">July 12, 2026</div>
-                                    <div class="front-location">Sandals Royal Caribbean • Montego Bay, Jamaica</div>
+            <!-- Header Section -->
+            <header class="invitation-header">
+                <p class="invitation-subtitle">Together with their families</p>
+                <h1 class="couple-names">
+                    Jeremy
+                    <span class="ampersand">&</span>
+                    Claudia
+                </h1>
+                <p class="invitation-subtitle">Invite you to celebrate their wedding</p>
 
-                                    <!-- Countdown Timer -->
-                                    <div class="countdown-container">
-                                        <div class="countdown-unit">
-                                            <span class="countdown-number" id="days">000</span>
-                                            <span class="countdown-label">Days</span>
-                                        </div>
-                                        <div class="countdown-unit">
-                                            <span class="countdown-number" id="hours">00</span>
-                                            <span class="countdown-label">Hours</span>
-                                        </div>
-                                        <div class="countdown-unit">
-                                            <span class="countdown-number" id="minutes">00</span>
-                                            <span class="countdown-label">Minutes</span>
-                                        </div>
-                                        <div class="countdown-unit">
-                                            <span class="countdown-number" id="seconds">00</span>
-                                            <span class="countdown-label">Seconds</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <!-- Floral Divider -->
+                <div class="floral-divider">
+                    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="3" fill="#C87E5C"/>
+                        <circle cx="20" cy="12" r="2" fill="#8B9D83"/>
+                        <circle cx="20" cy="28" r="2" fill="#8B9D83"/>
+                        <circle cx="12" cy="20" r="2" fill="#8B9D83"/>
+                        <circle cx="28" cy="20" r="2" fill="#8B9D83"/>
+                        <circle cx="15" cy="15" r="1.5" fill="#A8B99C" opacity="0.6"/>
+                        <circle cx="25" cy="15" r="1.5" fill="#A8B99C" opacity="0.6"/>
+                        <circle cx="15" cy="25" r="1.5" fill="#A8B99C" opacity="0.6"/>
+                        <circle cx="25" cy="25" r="1.5" fill="#A8B99C" opacity="0.6"/>
+                    </svg>
+                </div>
 
-                            <!-- Card Back -->
-                            <div class="card-face card-back">
-                                <div class="back-content">
-                                    <!-- Schedule Section -->
-                                    <div class="detail-section">
-                                        <h2 class="section-title">
-                                            <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                                            </svg>
-                                            Celebration Timeline
-                                        </h2>
+                <p class="wedding-date">Saturday, July 12, 2026</p>
+                <p class="detail-content">Montego Bay, Jamaica</p>
+            </header>
 
-                                        <div class="timeline-container">
-                                            <div class="timeline-line"></div>
+            <!-- Event Timeline -->
+            <section class="timeline-section">
+                <h2 class="timeline-title">Celebration Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-time">4:00 PM</div>
+                            <div class="timeline-event">Ceremony</div>
+                            <div class="timeline-location">Beachfront Gazebo</div>
+                        </div>
+                    </div>
 
-                                            <div class="timeline-item ceremony">
-                                                <div class="timeline-dot"></div>
-                                                <div class="timeline-time">4:00 PM</div>
-                                                <div class="timeline-event">Ceremony</div>
-                                                <div class="timeline-location">Beachfront Gazebo</div>
-                                            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-time">5:30 PM</div>
+                            <div class="timeline-event">Cocktail Hour</div>
+                            <div class="timeline-location">Sunset Terrace</div>
+                        </div>
+                    </div>
 
-                                            <div class="timeline-item">
-                                                <div class="timeline-dot"></div>
-                                                <div class="timeline-time">5:30 PM</div>
-                                                <div class="timeline-event">Cocktail Hour</div>
-                                                <div class="timeline-location">Sunset Terrace</div>
-                                            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-time">7:00 PM</div>
+                            <div class="timeline-event">Reception & Dinner</div>
+                            <div class="timeline-location">Oceanview Pavilion</div>
+                        </div>
+                    </div>
 
-                                            <div class="timeline-item">
-                                                <div class="timeline-dot"></div>
-                                                <div class="timeline-time">7:00 PM</div>
-                                                <div class="timeline-event">Reception</div>
-                                                <div class="timeline-location">Oceanview Pavilion</div>
-                                            </div>
-
-                                            <div class="timeline-item">
-                                                <div class="timeline-dot"></div>
-                                                <div class="timeline-time">10:00 PM</div>
-                                                <div class="timeline-event">After Party</div>
-                                                <div class="timeline-location">Beach Bar</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Venue Photo -->
-                                    <div class="venue-photo">
-                                        <img src="./assets/images/Resort Gallery 1.jpg" alt="Sandals Royal Caribbean Resort">
-                                    </div>
-
-                                    <!-- Dress Code -->
-                                    <div class="detail-section">
-                                        <h2 class="section-title">
-                                            <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
-                                            </svg>
-                                            Dress Code
-                                        </h2>
-
-                                        <div class="dress-code-grid">
-                                            <div class="dress-code-item">
-                                                <div class="dress-code-category">Ceremony & Reception</div>
-                                                <div class="dress-code-description">Elegant Beach Formal<br>Light fabrics encouraged</div>
-                                            </div>
-                                            <div class="dress-code-item">
-                                                <div class="dress-code-category">After Party</div>
-                                                <div class="dress-code-description">Beach Chic<br>Comfortable & Festive</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- RSVP -->
-                                    <div class="detail-section">
-                                        <h2 class="section-title">
-                                            <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                                            </svg>
-                                            RSVP
-                                        </h2>
-
-                                        <div class="rsvp-content">
-                                            <p class="rsvp-text">
-                                                Please confirm your attendance by June 1, 2026.<br>
-                                                We can't wait to celebrate with you!
-                                            </p>
-                                            <a href="mailto:jeremy.claudia.wedding@example.com?subject=RSVP%20-%20Jeremy%20%26%20Claudia%27s%20Wedding" class="rsvp-button">
-                                                CONFIRM ATTENDANCE
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-time">10:00 PM</div>
+                            <div class="timeline-event">After Party</div>
+                            <div class="timeline-location">Beach Bar</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- Venue Information -->
+            <section class="venue-section">
+                <h2 class="venue-title">Venue</h2>
+                <div class="venue-card">
+                    <div class="detail-icon">🏝️</div>
+                    <h3 class="venue-name">Sandals Royal Caribbean</h3>
+                    <p class="venue-address">
+                        Mahoe Bay<br>
+                        Montego Bay, Jamaica
+                    </p>
+                    <a href="https://www.sandals.com/royal-caribbean/" target="_blank" rel="noopener" class="venue-link">
+                        View Resort Details
+                    </a>
+                </div>
+            </section>
+
+            <!-- Event Details Grid -->
+            <section class="event-details">
+                <div class="grid">
+                    <div class="col-full col-md-6 col-lg-6">
+                        <div class="detail-card">
+                            <div class="detail-icon">👗</div>
+                            <h3 class="detail-title">Attire</h3>
+                            <p class="detail-content">
+                                Semi-Formal Beach Attire<br>
+                                Light fabrics and colors encouraged
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-full col-md-6 col-lg-6">
+                        <div class="detail-card">
+                            <div class="detail-icon">🎁</div>
+                            <h3 class="detail-title">Registry</h3>
+                            <p class="detail-content">
+                                Your presence is our present!<br>
+                                If you wish to give, cash gifts are appreciated
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-full">
+                        <div class="detail-card">
+                            <div class="detail-icon">✈️</div>
+                            <h3 class="detail-title">Travel Information</h3>
+                            <p class="detail-content">
+                                Fly into Sangster International Airport (MBJ)<br>
+                                Resort transfer: 10 minutes from airport<br>
+                                Book early for best rates and availability
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RSVP Section -->
+            <section class="rsvp-section">
+                <h2 class="rsvp-title">Join Us</h2>
+                <p class="rsvp-message">
+                    We can't wait to celebrate with you in paradise!<br>
+                    Please RSVP by May 1, 2026
+                </p>
+                <a href="mailto:jeremyandclaudia2026@example.com?subject=RSVP%20for%20Wedding" class="rsvp-button">
+                    RSVP Now
+                </a>
+            </section>
+
+            <!-- Footer -->
+            <footer class="invitation-footer">
+                <p class="footer-message">See you in Jamaica!</p>
+                <p class="footer-hashtag">#JeremyAndClaudia2026 💚</p>
+            </footer>
         </div>
     </div>
 
-    <!-- Flip Instructions -->
-    <div class="flip-instructions" id="flipInstructions">
-        <p>Click or Tap to Flip Card</p>
-    </div>
-
-    <!-- Music Player -->
-    <div class="music-player" id="musicPlayer">
-        <svg class="music-icon" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-        </svg>
-        <span class="music-text">Click to Play Music</span>
-    </div>
-
-    <!-- Background Music -->
-    <audio id="backgroundMusic" loop>
-        <source src="./assets/audio/Magical.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- Social Share Banner -->
-    <div class="social-share">
-        <p>#JeremyAndClaudia2026 💍✨</p>
-    </div>
-
     <script>
-        // ===================================
-        // PHASE 1: Core Functionality
-        // ===================================
-
-        // Countdown Timer
-        const weddingDate = new Date('2026-07-12T16:00:00').getTime();
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = String(days).padStart(3, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
-            if (distance < 0) {
-                document.getElementById('days').textContent = '000';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
-            }
-        }
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-
-        // ===================================
-        // PHASE 5: Touch & Interaction
-        // ===================================
-
-        // 3D Card Flip
-        const card3d = document.getElementById('card3d');
-        const flipInstructions = document.getElementById('flipInstructions');
-        let hasFlipped = false;
-
-        // Click/Tap to flip
-        card3d.addEventListener('click', function() {
-            card3d.classList.toggle('flipped');
-            if (!hasFlipped) {
-                hasFlipped = true;
-                setTimeout(() => {
-                    flipInstructions.classList.add('hidden');
-                }, 2000);
-            }
-        });
-
-        // Touch gestures for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        card3d.addEventListener('touchstart', function(event) {
-            touchStartX = event.changedTouches[0].screenX;
-        }, {passive: true});
-
-        card3d.addEventListener('touchend', function(event) {
-            touchEndX = event.changedTouches[0].screenX;
-            handleSwipe();
-        }, {passive: true});
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const swipeDistance = touchEndX - touchStartX;
-
-            if (Math.abs(swipeDistance) > swipeThreshold) {
-                card3d.classList.toggle('flipped');
-                if (!hasFlipped) {
-                    hasFlipped = true;
-                    setTimeout(() => {
-                        flipInstructions.classList.add('hidden');
-                    }, 2000);
-                }
-            }
-        }
-
-        // Keyboard navigation (accessibility)
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                card3d.classList.toggle('flipped');
-            }
-        });
-
-        // ===================================
-        // Music Player
-        // ===================================
-
-        const musicPlayer = document.getElementById('musicPlayer');
-        const backgroundMusic = document.getElementById('backgroundMusic');
-        const musicText = musicPlayer.querySelector('.music-text');
-        let isPlaying = false;
-
-        musicPlayer.addEventListener('click', function() {
-            if (isPlaying) {
-                backgroundMusic.pause();
-                musicText.textContent = 'Click to Play Music';
-                isPlaying = false;
-            } else {
-                backgroundMusic.play().catch(error => {
-                    console.log('Audio playback failed:', error);
-                });
-                musicText.textContent = 'Music Playing ♫';
-                isPlaying = true;
-            }
-        });
-
-        // Auto-hide flip instructions after first interaction
-        setTimeout(() => {
-            if (!hasFlipped) {
-                flipInstructions.style.animation = 'pulse-glow-instructions 1.5s ease-in-out infinite';
-            }
-        }, 5000);
-
-        // ===================================
-        // Performance Optimizations
-        // ===================================
-
-        // Lazy load non-critical images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                });
+        // Lazy loading for images (if added later)
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
             });
-
-            const lazyImages = document.querySelectorAll('img.lazy');
-            lazyImages.forEach(img => imageObserver.observe(img));
+        } else {
+            // Fallback for browsers that don't support lazy loading
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
         }
 
-        // Reduce animations on low-power mode (iOS)
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animation triggers
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items and detail cards
+        document.querySelectorAll('.timeline-item, .detail-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add parallax effect to blobs on scroll (subtle)
+        let ticking = false;
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const blobs = document.querySelectorAll('.watercolor-blob');
+
+                    blobs.forEach((blob, index) => {
+                        const speed = 0.05 + (index * 0.02);
+                        blob.style.transform = `translateY(${scrolled * speed}px)`;
+                    });
+
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Accessibility: Announce page load to screen readers
+        window.addEventListener('load', () => {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.className = 'sr-only';
+            announcement.textContent = 'Wedding invitation page loaded. Jeremy and Claudia invite you to their wedding on July 12, 2026 in Montego Bay, Jamaica.';
+            document.body.appendChild(announcement);
+        });
+
+        // Performance: Reduce motion for users who prefer it
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            document.documentElement.style.setProperty('--transition-slow', '0.1s');
-            document.documentElement.style.setProperty('--transition-medium', '0.05s');
+            document.documentElement.style.setProperty('--transition-fast', '0ms');
+            document.documentElement.style.setProperty('--transition-medium', '0ms');
+            document.documentElement.style.setProperty('--transition-slow', '0ms');
         }
-
-        // ===================================
-        // Analytics (optional - placeholder)
-        // ===================================
-
-        // Track card flips
-        card3d.addEventListener('click', function() {
-            // Send analytics event
-            console.log('Card flipped');
-        });
-
-        // Track RSVP clicks
-        document.querySelector('.rsvp-button')?.addEventListener('click', function() {
-            // Send analytics event
-            console.log('RSVP button clicked');
-        });
     </script>
 </body>
 </html>
