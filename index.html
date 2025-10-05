@@ -2,303 +2,417 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jane & Joe - Wedding Invitation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jeremy & Claudia - July 12, 2026 - Sandals Royal Caribbean, Jamaica</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="You're invited to Jane & Joe's wedding celebration at Sandals Royal Caribbean, Montego Bay, Jamaica on July 12, 2026">
+    <meta name="description" content="Join us for the wedding of Jeremy and Claudia on July 12, 2026, at Sandals Royal Caribbean, Montego Bay, Jamaica">
+    <meta name="keywords" content="Jeremy Claudia Wedding, Destination Wedding Jamaica, Sandals Royal Caribbean Wedding">
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Jane & Joe - Wedding Invitation">
-    <meta property="og:description" content="July 12, 2026 | Montego Bay, Jamaica">
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="Jeremy & Claudia - Wedding Invitation">
+    <meta property="og:description" content="July 12, 2026 - Sandals Royal Caribbean, Montego Bay, Jamaica">
     <meta property="og:image" content="./assets/images/Couple Gallery 2.jpg">
+    <meta property="og:url" content="https://invitation4-pied.vercel.app">
     <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jeremy & Claudia - Wedding Invitation">
+    <meta name="twitter:description" content="July 12, 2026 - Sandals Royal Caribbean, Jamaica">
+    <meta name="twitter:image" content="./assets/images/Couple Gallery 2.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="./assets/audio/Magical.mp3" as="audio">
+    <link rel="preload" href="./assets/images/Hero Image.jpg" as="image">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
-
-    <!-- Heroicons CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/heroicons@2.0.18/24/outline/index.js"></script>
-
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ==================== MONOCHROME PALETTE ==================== */
+        /* ===================================
+           PHASE 1: FOUNDATION - GRID SYSTEM
+           =================================== */
+
+        /* CSS Variables - Monochrome Palette */
         :root {
-            /* Monochrome Palette */
             --black: #161616;
+            --near-black: #161616;
             --medium-gray: #8A8A8A;
             --light-gray: #A5A5A5;
             --dark-charcoal: #1C1C1C;
             --warm-dark-gray: #4C4646;
 
-            /* Metallic Accents */
-            --silver: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 50%, #C0C0C0 100%);
-            --chrome: linear-gradient(135deg, #A5A5A5 0%, #FFFFFF 50%, #A5A5A5 100%);
+            /* Gradients */
+            --silver: linear-gradient(135deg, #A5A5A5 0%, #FFFFFF 50%, #A5A5A5 100%);
+            --chrome: linear-gradient(135deg, #A5A5A5 0%, #FFFFFF 35%, #8A8A8A 50%, #FFFFFF 65%, #A5A5A5 100%);
+
+            /* Grid System */
+            --grid-columns: 12;
+            --grid-gap-mobile: 16px;
+            --grid-gap-tablet: 24px;
+            --grid-gap-desktop: 32px;
+            --container-max: 1440px;
 
             /* Typography */
-            --font-display: 'Cormorant Garamond', serif;
+            --font-serif: 'Cormorant Garamond', serif;
             --font-script: 'Great Vibes', cursive;
             --font-sans: 'Montserrat', sans-serif;
+
+            /* Spacing */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-xxl: 64px;
+
+            /* Animation */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.4s ease;
+            --transition-slow: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
+        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: var(--font-sans);
             background: var(--black);
-            color: white;
+            color: var(--light-gray);
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
         }
 
-        /* ==================== ENHANCED PREMIUM DECORATIVE BACKGROUND ==================== */
+        /* ===================================
+           PHASE 2: ARTISTIC WALLPAPERS
+           =================================== */
+
+        /* Layered Background System */
         body::before {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.08; /* INCREASED from 0.03 for more visibility */
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 35px, var(--medium-gray) 35px, var(--medium-gray) 70px),
-                repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--warm-dark-gray) 35px, var(--warm-dark-gray) 70px);
-            pointer-events: none;
+            right: 0;
+            bottom: 0;
+            z-index: -3;
+            background:
+                /* Layer 1: Radial gradient overlay */
+                radial-gradient(circle at 20% 30%, rgba(76, 70, 70, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(138, 138, 138, 0.2) 0%, transparent 50%),
+                /* Layer 2: Base gradient */
+                linear-gradient(135deg, #161616 0%, #1C1C1C 50%, #161616 100%);
         }
 
+        /* Circuit Board Pattern */
         body::after {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(76, 70, 70, 0.2) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(138, 138, 138, 0.15) 0%, transparent 50%);
+            right: 0;
+            bottom: 0;
+            z-index: -2;
+            background-image:
+                /* Horizontal lines */
+                repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(138, 138, 138, 0.1) 80px, rgba(138, 138, 138, 0.1) 81px),
+                /* Vertical lines */
+                repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(138, 138, 138, 0.1) 80px, rgba(138, 138, 138, 0.1) 81px);
+            opacity: 0.5;
+        }
+
+        /* Noise Texture Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+            opacity: 0.08;
+            mix-blend-mode: overlay;
             pointer-events: none;
         }
 
-        /* ==================== MUSIC PLAYER ==================== */
-        .music-player {
+        /* Voronoi-inspired Geometric Pattern */
+        .geometric-bg {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10000;
-            background: linear-gradient(135deg, rgba(28, 28, 28, 0.95), rgba(76, 70, 70, 0.95));
-            backdrop-filter: blur(10px);
-            padding: 12px 20px;
-            border-radius: 50px;
-            border: 1px solid var(--medium-gray);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -2;
+            opacity: 0.03;
+            background-image:
+                polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            clip-path: polygon(
+                30% 10%, 70% 10%, 90% 30%, 90% 70%, 70% 90%, 30% 90%, 10% 70%, 10% 30%
+            );
         }
 
-        .music-player:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+        /* Scanline Effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 998;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.05) 0px,
+                transparent 1px,
+                transparent 2px,
+                rgba(0, 0, 0, 0.05) 3px
+            );
+            pointer-events: none;
+            animation: scanline-move 8s linear infinite;
         }
 
-        .music-icon {
-            width: 24px;
-            height: 24px;
-            fill: var(--light-gray);
+        @keyframes scanline-move {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
         }
 
-        .music-text {
-            font-size: 0.85rem;
-            color: var(--light-gray);
-            font-weight: 400;
-            letter-spacing: 0.5px;
+        /* ===================================
+           12-COLUMN RESPONSIVE GRID
+           =================================== */
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
         }
 
-        @media (max-width: 768px) {
-            .music-player {
-                top: 10px;
-                right: 10px;
-                padding: 10px 16px;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Mobile: 4 columns */
+            gap: var(--grid-gap-mobile);
+            width: 100%;
+        }
+
+        /* Column Spans - Mobile (4 columns) */
+        .col-1 { grid-column: span 1; }
+        .col-2 { grid-column: span 2; }
+        .col-3 { grid-column: span 3; }
+        .col-4 { grid-column: span 4; }
+
+        /* Tablet Breakpoint (768px+) - 8 columns */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 var(--space-md);
             }
 
-            .music-text {
-                font-size: 0.75rem;
+            .grid {
+                grid-template-columns: repeat(8, 1fr);
+                gap: var(--grid-gap-tablet);
             }
+
+            .col-md-1 { grid-column: span 1; }
+            .col-md-2 { grid-column: span 2; }
+            .col-md-3 { grid-column: span 3; }
+            .col-md-4 { grid-column: span 4; }
+            .col-md-5 { grid-column: span 5; }
+            .col-md-6 { grid-column: span 6; }
+            .col-md-7 { grid-column: span 7; }
+            .col-md-8 { grid-column: span 8; }
         }
 
-        /* ==================== ENVELOPE ANIMATION ==================== */
-        .envelope-container {
+        /* Desktop Breakpoint (1024px+) - 12 columns */
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 var(--space-lg);
+            }
+
+            .grid {
+                grid-template-columns: repeat(12, 1fr);
+                gap: var(--grid-gap-desktop);
+            }
+
+            .col-lg-1 { grid-column: span 1; }
+            .col-lg-2 { grid-column: span 2; }
+            .col-lg-3 { grid-column: span 3; }
+            .col-lg-4 { grid-column: span 4; }
+            .col-lg-5 { grid-column: span 5; }
+            .col-lg-6 { grid-column: span 6; }
+            .col-lg-7 { grid-column: span 7; }
+            .col-lg-8 { grid-column: span 8; }
+            .col-lg-9 { grid-column: span 9; }
+            .col-lg-10 { grid-column: span 10; }
+            .col-lg-11 { grid-column: span 11; }
+            .col-lg-12 { grid-column: span 12; }
+        }
+
+        /* ===================================
+           PHASE 4: PREMIUM ENVELOPE ANIMATION
+           =================================== */
+
+        .envelope-scene {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            height: 100%;
+            z-index: 9999;
+            background: linear-gradient(135deg, #161616 0%, #1C1C1C 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10000;
-            background: var(--black);
-            animation: fadeOutEnvelope 1s ease 4s forwards;
-            pointer-events: none;
+            animation: envelope-scene-fade 5s forwards;
         }
 
-        .envelope {
+        @keyframes envelope-scene-fade {
+            0%, 70% { opacity: 1; pointer-events: all; }
+            100% { opacity: 0; pointer-events: none; }
+        }
+
+        .envelope-container {
             position: relative;
-            width: 400px;
-            height: 300px;
+            width: min(400px, 80vw);
+            height: min(280px, 56vw);
             transform-style: preserve-3d;
-            animation: envelopeFloat 2s ease-in-out infinite;
+            perspective: 1200px;
+            animation: envelope-entrance 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
         }
 
-        @media (max-width: 768px) {
-            .envelope {
-                width: 300px;
-                height: 225px;
+        @keyframes envelope-entrance {
+            0% {
+                transform: translateY(100vh) scale(0.3) rotateX(-45deg);
+                opacity: 0;
+            }
+            60% {
+                transform: translateY(0) scale(1.05) rotateX(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0) scale(1) rotateX(0deg);
+                opacity: 1;
             }
         }
 
+        /* Premium SVG Envelope */
+        .envelope-svg {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.8));
+        }
+
+        .envelope-back {
+            fill: var(--dark-charcoal);
+            stroke: var(--medium-gray);
+            stroke-width: 2;
+        }
+
         .envelope-flap {
-            position: absolute;
-            width: 400px;
-            height: 200px;
-            background: linear-gradient(135deg, var(--warm-dark-gray) 0%, var(--medium-gray) 100%);
-            border: 2px solid var(--light-gray);
-            transform-origin: bottom;
-            clip-path: polygon(0 0, 50% 100%, 100% 0);
-            animation: flapOpen 2s ease 1.5s forwards;
-            z-index: 3;
+            fill: var(--warm-dark-gray);
+            stroke: var(--medium-gray);
+            stroke-width: 2;
+            transform-origin: 50% 0%;
+            animation: flap-open 1.5s 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
         }
 
-        .invitation-card-preview {
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 200px;
-            background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--black) 100%);
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-script);
-            font-size: 2rem;
-            color: var(--light-gray);
-            z-index: 2;
-            animation: cardSlideOut 1.5s ease 2.5s forwards;
-        }
-
-        @keyframes envelopeFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes flapOpen {
+        @keyframes flap-open {
             0% { transform: rotateX(0deg); }
             100% { transform: rotateX(-180deg); }
         }
 
-        @keyframes cardSlideOut {
-            0% { transform: translateX(-50%) translateY(0); opacity: 1; }
-            100% { transform: translateX(-50%) translateY(-100px); opacity: 0; }
+        .wax-seal {
+            animation: seal-break 0.5s 2.3s forwards;
         }
 
-        @keyframes fadeOutEnvelope {
-            0% { opacity: 1; pointer-events: none; }
-            100% { opacity: 0; pointer-events: none; display: none; }
+        @keyframes seal-break {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
         }
 
-        /* ==================== MAIN CONTENT ==================== */
-        .main-container {
-            position: relative;
-            z-index: 1;
+        .envelope-emboss {
+            fill: none;
+            stroke: var(--light-gray);
+            stroke-width: 1;
+            opacity: 0.3;
+        }
+
+        .card-peek {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: card-emerge 1s 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes card-emerge {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(-30px) scale(1);
+            }
+        }
+
+        /* ===================================
+           PHASE 3: 3D CARD SYSTEM
+           =================================== */
+
+        .scene-3d {
+            width: 100%;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
-        }
-
-        /* ==================== FLIP INSTRUCTIONS ==================== */
-        .flip-instructions {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            background: linear-gradient(135deg, rgba(28, 28, 28, 0.9), rgba(76, 70, 70, 0.9));
-            backdrop-filter: blur(10px);
-            padding: 12px 24px;
-            border-radius: 25px;
-            border: 1px solid var(--medium-gray);
-            animation: pulseGlow 2s ease-in-out infinite;
-            transition: opacity 0.5s ease;
-        }
-
-        .flip-instructions.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .flip-instructions p {
-            font-size: 0.9rem;
-            color: #000000;
-            text-align: center;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(165, 165, 165, 0.3); }
-            50% { box-shadow: 0 0 30px rgba(165, 165, 165, 0.5); }
-        }
-
-        @media (max-width: 768px) {
-            .flip-instructions {
-                bottom: 20px;
-                padding: 10px 20px;
-            }
-
-            .flip-instructions p {
-                font-size: 0.75rem;
-            }
-        }
-
-        /* ==================== 3D CARD FLIP ==================== */
-        .card-scene {
-            width: 100%;
-            max-width: 800px;
-            height: 600px;
             perspective: 2000px;
+            padding: var(--space-xl) 0;
             position: relative;
+            opacity: 0;
+            animation: scene-fade-in 1s 4.5s forwards;
         }
 
-        @media (max-width: 768px) {
-            .card-scene {
-                height: 700px;
-                max-width: 400px;
+        @keyframes scene-fade-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .card-3d-container {
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 3/4;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float-3d 6s ease-in-out infinite;
+        }
+
+        @keyframes float-3d {
+            0%, 100% {
+                transform: translateY(0) rotateX(2deg) rotateY(-2deg);
+            }
+            50% {
+                transform: translateY(-20px) rotateX(-2deg) rotateY(2deg);
             }
         }
 
         .card-3d {
-            position: relative;
             width: 100%;
             height: 100%;
+            position: relative;
             transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform var(--transition-slow);
             cursor: pointer;
         }
 
@@ -311,369 +425,343 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            border-radius: 24px;
             overflow: hidden;
-            border: 1px solid var(--medium-gray);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(165, 165, 165, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        /* ==================== ART DECO CORNER ORNAMENTS ==================== */
+        /* ===================================
+           GLASSMORPHISM 2.0
+           =================================== */
+
+        .card-front {
+            background:
+                linear-gradient(135deg,
+                    rgba(22, 22, 22, 0.95) 0%,
+                    rgba(76, 70, 70, 0.92) 50%,
+                    rgba(28, 28, 28, 0.95) 100%
+                );
+            backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid rgba(165, 165, 165, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Holographic Shimmer Effect */
+        .card-front::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                135deg,
+                transparent 0%,
+                rgba(165, 165, 165, 0.1) 40%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(165, 165, 165, 0.1) 60%,
+                transparent 100%
+            );
+            background-size: 200% 200%;
+            animation: holographic-shimmer 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes holographic-shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Decorative Frame */
+        .card-front::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid rgba(165, 165, 165, 0.2);
+            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        .card-back {
+            background:
+                linear-gradient(135deg,
+                    rgba(28, 28, 28, 0.98) 0%,
+                    rgba(22, 22, 22, 0.98) 100%
+                );
+            backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid rgba(165, 165, 165, 0.2);
+            transform: rotateY(180deg);
+            padding: var(--space-lg);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Art Deco Corner Ornaments */
         .art-deco-corner {
             position: absolute;
             width: 80px;
             height: 80px;
             pointer-events: none;
+            z-index: 10;
         }
 
         .corner-top-left {
-            top: 20px;
-            left: 20px;
+            top: 30px;
+            left: 30px;
             border-top: 2px solid var(--medium-gray);
             border-left: 2px solid var(--medium-gray);
-        }
-
-        .corner-top-left::before,
-        .corner-top-left::after {
-            content: '';
-            position: absolute;
-            background: var(--medium-gray);
         }
 
         .corner-top-left::before {
-            width: 20px;
+            content: '';
+            position: absolute;
+            width: 25px;
             height: 2px;
-            top: 10px;
+            top: 12px;
             left: 0;
+            background: var(--medium-gray);
         }
 
         .corner-top-left::after {
+            content: '';
+            position: absolute;
             width: 2px;
-            height: 20px;
+            height: 25px;
             top: 0;
-            left: 10px;
+            left: 12px;
+            background: var(--medium-gray);
         }
 
         .corner-top-right {
-            top: 20px;
-            right: 20px;
+            top: 30px;
+            right: 30px;
             border-top: 2px solid var(--medium-gray);
             border-right: 2px solid var(--medium-gray);
         }
 
-        .corner-top-right::before,
-        .corner-top-right::after {
+        .corner-top-right::before {
             content: '';
             position: absolute;
+            width: 25px;
+            height: 2px;
+            top: 12px;
+            right: 0;
             background: var(--medium-gray);
         }
 
-        .corner-top-right::before {
-            width: 20px;
-            height: 2px;
-            top: 10px;
-            right: 0;
-        }
-
         .corner-top-right::after {
+            content: '';
+            position: absolute;
             width: 2px;
-            height: 20px;
+            height: 25px;
             top: 0;
-            right: 10px;
+            right: 12px;
+            background: var(--medium-gray);
         }
 
         .corner-bottom-left {
-            bottom: 20px;
-            left: 20px;
+            bottom: 30px;
+            left: 30px;
             border-bottom: 2px solid var(--medium-gray);
             border-left: 2px solid var(--medium-gray);
         }
 
-        .corner-bottom-left::before,
-        .corner-bottom-left::after {
+        .corner-bottom-left::before {
             content: '';
             position: absolute;
+            width: 25px;
+            height: 2px;
+            bottom: 12px;
+            left: 0;
             background: var(--medium-gray);
         }
 
-        .corner-bottom-left::before {
-            width: 20px;
-            height: 2px;
-            bottom: 10px;
-            left: 0;
-        }
-
         .corner-bottom-left::after {
+            content: '';
+            position: absolute;
             width: 2px;
-            height: 20px;
+            height: 25px;
             bottom: 0;
-            left: 10px;
+            left: 12px;
+            background: var(--medium-gray);
         }
 
         .corner-bottom-right {
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             border-bottom: 2px solid var(--medium-gray);
             border-right: 2px solid var(--medium-gray);
         }
 
-        .corner-bottom-right::before,
-        .corner-bottom-right::after {
+        .corner-bottom-right::before {
             content: '';
             position: absolute;
+            width: 25px;
+            height: 2px;
+            bottom: 12px;
+            right: 0;
             background: var(--medium-gray);
         }
 
-        .corner-bottom-right::before {
-            width: 20px;
-            height: 2px;
-            bottom: 10px;
-            right: 0;
-        }
-
         .corner-bottom-right::after {
+            content: '';
+            position: absolute;
             width: 2px;
-            height: 20px;
+            height: 25px;
             bottom: 0;
-            right: 10px;
+            right: 12px;
+            background: var(--medium-gray);
         }
 
-        /* ==================== CARD FRONT WITH DECORATIVE FRAME ==================== */
-        .card-front {
-            background: linear-gradient(135deg,
-                rgba(22, 22, 22, 0.95) 0%,
-                rgba(76, 70, 70, 0.95) 50%,
-                rgba(28, 28, 28, 0.95) 100%
-            );
-            backdrop-filter: blur(20px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            padding: 60px 40px;
+        /* Card Front Content */
+        .front-content {
+            text-align: center;
+            z-index: 5;
             position: relative;
         }
 
-        .card-front::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('./assets/images/Hero Image.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            z-index: 0;
-        }
-
-        /* Decorative frame border */
-        .card-front::after {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            border: 1px solid rgba(165, 165, 165, 0.3);
-            border-radius: 15px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .card-front > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .front-script {
+        .front-names {
             font-family: var(--font-script);
+            font-size: clamp(3rem, 8vw, 6rem);
+            background: var(--chrome);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-sm);
+            letter-spacing: 2px;
+            animation: glitch 8s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 95%, 100% {
+                transform: translate(0);
+                filter: hue-rotate(0deg);
+            }
+            96% {
+                transform: translate(-2px, 2px);
+                filter: hue-rotate(10deg);
+            }
+            97% {
+                transform: translate(2px, -2px);
+                filter: hue-rotate(-10deg);
+            }
+            98% {
+                transform: translate(-1px, 1px);
+                filter: hue-rotate(5deg);
+            }
+            99% {
+                transform: translate(1px, -1px);
+                filter: hue-rotate(-5deg);
+            }
+        }
+
+        .front-ampersand {
+            font-family: var(--font-script);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--light-gray);
+            margin: var(--space-sm) 0;
+        }
+
+        .front-date {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--light-gray);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: var(--space-md);
+        }
+
+        .front-location {
+            font-family: var(--font-sans);
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            color: var(--medium-gray);
+            font-weight: 300;
+            margin-top: var(--space-sm);
+            letter-spacing: 2px;
+        }
+
+        /* Countdown Timer */
+        .countdown-container {
+            margin-top: var(--space-xl);
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .countdown-unit {
+            background: rgba(22, 22, 22, 0.6);
+            backdrop-filter: blur(20px);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 12px;
+            border: 1px solid rgba(165, 165, 165, 0.2);
+            text-align: center;
+            min-width: 80px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(165, 165, 165, 0.3);
+            }
+        }
+
+        .countdown-number {
+            font-family: var(--font-sans);
             font-size: 2rem;
+            font-weight: 700;
             background: var(--silver);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: 2px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-
-        .front-names {
-            font-family: var(--font-display);
-            font-size: 5rem;
-            font-weight: 300;
-            background: var(--chrome);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 8px;
-            line-height: 1.2;
-            text-align: center;
-            opacity: 0;
-            animation: fadeInUp 1s ease 1s forwards;
-        }
-
-        .front-ampersand {
             display: block;
-            font-family: var(--font-script);
-            font-size: 4rem;
-            margin: 10px 0;
-        }
-
-        .front-date {
-            font-family: var(--font-sans);
-            font-size: 1.2rem;
-            font-weight: 300;
-            letter-spacing: 6px;
-            color: var(--light-gray);
-            opacity: 0;
-            animation: fadeInUp 1s ease 1.5s forwards;
-        }
-
-        .countdown-container {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 2s forwards;
-        }
-
-        .countdown-box {
-            background: linear-gradient(135deg, rgba(28, 28, 28, 0.8), rgba(76, 70, 70, 0.8));
-            border: 1px solid var(--medium-gray);
-            border-radius: 12px;
-            padding: 15px 20px;
-            min-width: 80px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .countdown-number {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 600;
-            background: var(--chrome);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
         }
 
         .countdown-label {
-            font-size: 0.75rem;
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
             color: var(--medium-gray);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 8px;
+            margin-top: 4px;
         }
 
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ==================== CARD BACK WITH ENHANCEMENTS ==================== */
-        .card-back {
-            background: linear-gradient(135deg,
-                rgba(28, 28, 28, 0.98) 0%,
-                rgba(22, 22, 22, 0.98) 100%
-            );
-            backdrop-filter: blur(20px);
-            transform: rotateY(180deg);
-            padding: 40px;
-            overflow-y: auto;
-        }
-
-        .card-back::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('./assets/images/background image 1.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.08;
-            z-index: 0;
-        }
-
-        .event-details {
-            position: relative;
-            z-index: 1;
+        /* Card Back Content */
+        .back-content {
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .back-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .back-title {
-            font-family: var(--font-script);
-            font-size: 2.5rem;
-            background: var(--chrome);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-        }
-
-        .back-subtitle {
-            font-size: 0.9rem;
-            color: var(--medium-gray);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        /* ENHANCED: Venue Photo Thumbnail */
-        .venue-photo {
-            width: 100%;
-            max-width: 400px;
-            height: 120px;
-            margin: 20px auto;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--medium-gray);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .venue-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
-            filter: grayscale(100%);
-            transition: all 0.3s ease;
-        }
-
-        .venue-photo:hover img {
-            opacity: 1;
-            filter: grayscale(0%);
-        }
-
         .detail-section {
-            margin-bottom: 35px;
-            padding-bottom: 35px;
+            margin-bottom: var(--space-xl);
             position: relative;
+            padding-bottom: var(--space-lg);
         }
 
-        /* ENHANCED: Decorative Section Dividers */
         .detail-section::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 80px;
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--medium-gray), transparent);
         }
@@ -682,286 +770,577 @@
             display: none;
         }
 
-        .detail-header {
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            color: var(--light-gray);
+            text-align: center;
+            margin-bottom: var(--space-md);
+            letter-spacing: 2px;
+            background: var(--silver);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
+            justify-content: center;
+            gap: var(--space-sm);
         }
 
-        .detail-icon {
-            width: 28px; /* INCREASED from 24px */
-            height: 28px;
-            stroke: var(--light-gray);
-            stroke-width: 2;
-            flex-shrink: 0;
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            filter: brightness(1.5);
         }
 
-        .detail-title {
-            font-family: var(--font-display);
-            font-size: 1.4rem; /* INCREASED from 1.3rem */
-            color: var(--light-gray);
-            font-weight: 500;
-        }
-
-        .detail-content {
-            margin-left: 43px;
-            color: var(--medium-gray);
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
-        .detail-content p {
-            margin-bottom: 10px;
-        }
-
-        .detail-content strong {
-            color: var(--light-gray);
-            font-weight: 500;
-        }
-
-        /* ==================== VISUAL TIMELINE FOR SCHEDULE ==================== */
+        /* Visual Timeline */
         .timeline-container {
             position: relative;
-            padding-left: 40px;
+            padding-left: 50px;
+            margin-top: var(--space-lg);
         }
 
         .timeline-line {
             position: absolute;
-            left: 18px;
+            left: 20px;
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(180deg, var(--medium-gray) 0%, var(--warm-dark-gray) 100%);
+            background: linear-gradient(180deg,
+                var(--light-gray) 0%,
+                var(--medium-gray) 50%,
+                var(--warm-dark-gray) 100%
+            );
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 25px;
-            padding-left: 20px;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
+            margin-bottom: var(--space-lg);
+            padding-left: var(--space-sm);
         }
 
         .timeline-dot {
             position: absolute;
-            left: -29px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
+            left: -36px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background: var(--light-gray);
-            border: 2px solid var(--dark-charcoal);
-            box-shadow: 0 0 10px rgba(165, 165, 165, 0.5);
-        }
-
-        /* ENHANCED: Make ceremony larger/bolder */
-        .timeline-item.ceremony .timeline-time {
-            font-size: 1.3rem; /* Larger */
-            color: var(--light-gray);
+            border: 3px solid var(--dark-charcoal);
+            box-shadow: 0 0 12px rgba(165, 165, 165, 0.6);
+            z-index: 2;
         }
 
         .timeline-item.ceremony .timeline-dot {
-            width: 16px;
-            height: 16px;
-            left: -31px;
+            width: 18px;
+            height: 18px;
+            left: -38px;
             background: var(--chrome);
-            box-shadow: 0 0 15px rgba(165, 165, 165, 0.8);
+            box-shadow: 0 0 20px rgba(165, 165, 165, 0.9);
+            animation: pulse-dot 2s ease-in-out infinite;
         }
 
-        .timeline-item.ceremony .timeline-event {
-            font-size: 1.1rem;
-            font-weight: 600;
+        @keyframes pulse-dot {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(165, 165, 165, 0.9);
+            }
+            50% {
+                transform: scale(1.15);
+                box-shadow: 0 0 30px rgba(165, 165, 165, 1);
+            }
         }
 
         .timeline-time {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            color: var(--medium-gray);
+            font-family: var(--font-sans);
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 5px;
+            color: var(--light-gray);
+            margin-bottom: 4px;
+        }
+
+        .timeline-item.ceremony .timeline-time {
+            font-size: 1.4rem;
+            background: var(--chrome);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .timeline-event {
-            font-size: 1rem;
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
             color: var(--light-gray);
-            font-weight: 500;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
         .timeline-location {
-            font-size: 0.85rem;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
             color: var(--medium-gray);
             font-style: italic;
         }
 
-        /* ENHANCED: RSVP Button with Pulse Animation */
-        .rsvp-section {
+        /* Venue Photo */
+        .venue-photo {
+            width: 100%;
+            max-width: 500px;
+            height: 150px;
+            margin: var(--space-md) auto;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--medium-gray);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .venue-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            opacity: 0.85;
+            transition: all 0.5s ease;
+        }
+
+        .venue-photo:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Dress Code */
+        .dress-code-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+
+        .dress-code-item {
+            background: rgba(22, 22, 22, 0.4);
+            padding: var(--space-md);
+            border-radius: 12px;
+            border: 1px solid rgba(165, 165, 165, 0.1);
             text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
+        }
+
+        .dress-code-category {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--light-gray);
+            margin-bottom: var(--space-sm);
+        }
+
+        .dress-code-description {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--medium-gray);
+            line-height: 1.6;
+        }
+
+        /* RSVP Section */
+        .rsvp-content {
+            text-align: center;
+        }
+
+        .rsvp-text {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--medium-gray);
+            line-height: 1.8;
+            margin-bottom: var(--space-lg);
         }
 
         .rsvp-button {
             display: inline-block;
-            background: linear-gradient(135deg, var(--warm-dark-gray), var(--medium-gray));
-            color: white;
-            padding: 15px 40px; /* INCREASED padding */
-            border-radius: 30px;
+            padding: 18px 48px;
+            background: rgba(22, 22, 22, 0.6);
+            border: 2px solid var(--light-gray);
+            border-radius: 50px;
+            color: var(--light-gray);
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 600;
             text-decoration: none;
-            font-weight: 600; /* INCREASED weight */
-            font-size: 1rem; /* INCREASED size */
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             transition: all 0.3s ease;
-            border: 2px solid var(--light-gray); /* INCREASED border */
-            margin-top: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            animation: rsv pPulse 3s ease-in-out infinite;
+            animation: rsvp-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes rsvp-pulse {
+            0%, 100% {
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 12px 35px rgba(165, 165, 165, 0.4);
+                transform: scale(1.03);
+            }
         }
 
         .rsvp-button:hover {
+            background: rgba(165, 165, 165, 0.2);
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(165, 165, 165, 0.4);
-            background: linear-gradient(135deg, var(--medium-gray), var(--light-gray));
+            box-shadow: 0 16px 40px rgba(165, 165, 165, 0.5);
         }
 
-        @keyframes rsvpPulse {
+        /* ===================================
+           PHASE 5: MOBILE OPTIMIZATIONS
+           =================================== */
+
+        /* Flip Instructions */
+        .flip-instructions {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(22, 22, 22, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 12px 28px;
+            border-radius: 30px;
+            border: 1px solid rgba(165, 165, 165, 0.3);
+            z-index: 999;
+            animation: pulse-glow-instructions 2s ease-in-out infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        @keyframes pulse-glow-instructions {
             0%, 100% {
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 0 20px rgba(165, 165, 165, 0.3);
             }
             50% {
-                box-shadow: 0 8px 30px rgba(165, 165, 165, 0.5);
+                box-shadow: 0 0 35px rgba(165, 165, 165, 0.5);
             }
         }
 
-        /* ==================== MOBILE RESPONSIVE ==================== */
-        @media (max-width: 768px) {
-            .art-deco-corner {
-                width: 50px;
-                height: 50px;
+        .flip-instructions.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .flip-instructions p {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: #000000;
+            text-align: center;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: rgba(22, 22, 22, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(165, 165, 165, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .music-player:hover {
+            background: rgba(28, 28, 28, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .music-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--light-gray);
+        }
+
+        .music-text {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--light-gray);
+            font-weight: 500;
+        }
+
+        /* Social Share Banner */
+        .social-share {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(165, 165, 165, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 16px;
+            text-align: center;
+            z-index: 998;
+            border-top: 1px solid rgba(138, 138, 138, 0.5);
+        }
+
+        .social-share p {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: #000000;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Touch-friendly sizing */
+        @media (hover: none) and (pointer: coarse) {
+            .rsvp-button {
+                min-height: 44px;
+                min-width: 200px;
             }
 
-            .corner-top-left,
-            .corner-top-right,
-            .corner-bottom-left,
-            .corner-bottom-right {
-                top: 10px;
-                left: 10px;
-                right: 10px;
-                bottom: 10px;
+            .card-3d {
+                cursor: default;
+            }
+        }
+
+        /* Tablet Adjustments */
+        @media (min-width: 768px) {
+            .dress-code-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .corner-top-left::before,
-            .corner-top-right::before,
-            .corner-bottom-left::before,
-            .corner-bottom-right::before {
-                width: 12px;
-            }
-
-            .corner-top-left::after,
-            .corner-top-right::after,
-            .corner-bottom-left::after,
-            .corner-bottom-right::after {
-                height: 12px;
-            }
-
-            .front-script {
-                font-size: 1.5rem;
-            }
-
-            .front-names {
-                font-size: 3rem;
-                letter-spacing: 4px;
-            }
-
-            .front-ampersand {
-                font-size: 2.5rem;
-            }
-
-            .front-date {
-                font-size: 1rem;
-                letter-spacing: 3px;
-            }
-
-            .countdown-container {
-                gap: 12px;
-                margin-top: 20px;
-            }
-
-            .countdown-box {
-                padding: 12px 15px;
-                min-width: 65px;
-            }
-
-            .countdown-number {
-                font-size: 2rem;
-            }
-
-            .countdown-label {
-                font-size: 0.65rem;
-            }
-
-            .card-back {
-                padding: 30px 20px;
-            }
-
-            .back-title {
-                font-size: 2rem;
+            .countdown-unit {
+                min-width: 100px;
             }
 
             .venue-photo {
-                height: 100px;
-            }
-
-            .detail-title {
-                font-size: 1.1rem;
-            }
-
-            .detail-content {
-                font-size: 0.85rem;
-                margin-left: 0;
-            }
-
-            .timeline-container {
-                padding-left: 30px;
-            }
-
-            .card-front::before {
-                opacity: 0.25;
+                height: 200px;
             }
         }
 
-        /* ==================== ACCESSIBILITY ==================== */
+        /* Desktop Enhancements */
+        @media (min-width: 1024px) {
+            .card-3d-container {
+                max-width: 1000px;
+            }
+
+            .flip-instructions p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
-            * {
+            *,
+            *::before,
+            *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            /* Already dark by default */
+        }
+
+        /* Print Styles */
+        @media print {
+            .envelope-scene,
+            .music-player,
+            .flip-instructions,
+            .social-share,
+            .noise-overlay,
+            .scanlines {
+                display: none !important;
+            }
+
+            .card-3d {
+                transform: none !important;
+            }
+
+            .card-back {
+                transform: none !important;
+                position: relative !important;
+                page-break-before: always;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
 
-    <!-- Background Music Player -->
-    <div class="music-player" id="musicPlayer">
-        <svg class="music-icon" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-        </svg>
-        <span class="music-text">Click to Play Music</span>
+    <!-- Scanlines -->
+    <div class="scanlines"></div>
+
+    <!-- PHASE 4: Premium Envelope Animation -->
+    <div class="envelope-scene" id="envelopeScene">
+        <div class="envelope-container">
+            <svg class="envelope-svg" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+                <!-- Envelope Back -->
+                <rect class="envelope-back" x="10" y="40" width="380" height="230" rx="8"/>
+
+                <!-- Envelope Flap -->
+                <polygon class="envelope-flap" points="200,20 390,120 10,120"/>
+
+                <!-- Embossed Details -->
+                <circle class="envelope-emboss" cx="200" cy="155" r="30"/>
+                <text x="200" y="165" text-anchor="middle" fill="#A5A5A5" font-family="Great Vibes" font-size="24" opacity="0.5">J&C</text>
+
+                <!-- Wax Seal -->
+                <g class="wax-seal">
+                    <circle cx="200" cy="155" r="25" fill="#4C4646" stroke="#8A8A8A" stroke-width="2"/>
+                    <text x="200" y="165" text-anchor="middle" fill="#A5A5A5" font-family="Great Vibes" font-size="20">💍</text>
+                </g>
+
+                <!-- Card Peeking Out -->
+                <g class="card-peek">
+                    <rect x="120" y="140" width="160" height="100" fill="#1C1C1C" stroke="#8A8A8A" stroke-width="1" rx="4"/>
+                    <text x="200" y="185" text-anchor="middle" fill="#A5A5A5" font-family="Great Vibes" font-size="28">Jeremy & Claudia</text>
+                </g>
+            </svg>
+        </div>
     </div>
-    <audio id="backgroundMusic" loop>
-        <source src="./assets/audio/Magical.mp3" type="audio/mpeg">
-    </audio>
 
-    <!-- Envelope Opening Animation -->
-    <div class="envelope-container" id="envelopeContainer">
-        <div class="envelope">
-            <div class="envelope-flap"></div>
-            <div class="invitation-card-preview">
-                Jane & Joe
+    <!-- PHASE 3: 3D Card Scene -->
+    <div class="scene-3d">
+        <div class="container">
+            <div class="grid">
+                <div class="col-4 col-md-8 col-lg-10" style="grid-column-start: 1; margin: 0 auto;">
+                    <div class="card-3d-container">
+                        <div class="card-3d" id="card3d">
+                            <!-- Card Front -->
+                            <div class="card-face card-front">
+                                <!-- Art Deco Corners -->
+                                <div class="art-deco-corner corner-top-left"></div>
+                                <div class="art-deco-corner corner-top-right"></div>
+                                <div class="art-deco-corner corner-bottom-left"></div>
+                                <div class="art-deco-corner corner-bottom-right"></div>
+
+                                <div class="front-content">
+                                    <div class="front-names">Jeremy & Claudia</div>
+                                    <div class="front-date">July 12, 2026</div>
+                                    <div class="front-location">Sandals Royal Caribbean • Montego Bay, Jamaica</div>
+
+                                    <!-- Countdown Timer -->
+                                    <div class="countdown-container">
+                                        <div class="countdown-unit">
+                                            <span class="countdown-number" id="days">000</span>
+                                            <span class="countdown-label">Days</span>
+                                        </div>
+                                        <div class="countdown-unit">
+                                            <span class="countdown-number" id="hours">00</span>
+                                            <span class="countdown-label">Hours</span>
+                                        </div>
+                                        <div class="countdown-unit">
+                                            <span class="countdown-number" id="minutes">00</span>
+                                            <span class="countdown-label">Minutes</span>
+                                        </div>
+                                        <div class="countdown-unit">
+                                            <span class="countdown-number" id="seconds">00</span>
+                                            <span class="countdown-label">Seconds</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Back -->
+                            <div class="card-face card-back">
+                                <div class="back-content">
+                                    <!-- Schedule Section -->
+                                    <div class="detail-section">
+                                        <h2 class="section-title">
+                                            <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                            </svg>
+                                            Celebration Timeline
+                                        </h2>
+
+                                        <div class="timeline-container">
+                                            <div class="timeline-line"></div>
+
+                                            <div class="timeline-item ceremony">
+                                                <div class="timeline-dot"></div>
+                                                <div class="timeline-time">4:00 PM</div>
+                                                <div class="timeline-event">Ceremony</div>
+                                                <div class="timeline-location">Beachfront Gazebo</div>
+                                            </div>
+
+                                            <div class="timeline-item">
+                                                <div class="timeline-dot"></div>
+                                                <div class="timeline-time">5:30 PM</div>
+                                                <div class="timeline-event">Cocktail Hour</div>
+                                                <div class="timeline-location">Sunset Terrace</div>
+                                            </div>
+
+                                            <div class="timeline-item">
+                                                <div class="timeline-dot"></div>
+                                                <div class="timeline-time">7:00 PM</div>
+                                                <div class="timeline-event">Reception</div>
+                                                <div class="timeline-location">Oceanview Pavilion</div>
+                                            </div>
+
+                                            <div class="timeline-item">
+                                                <div class="timeline-dot"></div>
+                                                <div class="timeline-time">10:00 PM</div>
+                                                <div class="timeline-event">After Party</div>
+                                                <div class="timeline-location">Beach Bar</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Venue Photo -->
+                                    <div class="venue-photo">
+                                        <img src="./assets/images/Resort Gallery 1.jpg" alt="Sandals Royal Caribbean Resort">
+                                    </div>
+
+                                    <!-- Dress Code -->
+                                    <div class="detail-section">
+                                        <h2 class="section-title">
+                                            <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                                            </svg>
+                                            Dress Code
+                                        </h2>
+
+                                        <div class="dress-code-grid">
+                                            <div class="dress-code-item">
+                                                <div class="dress-code-category">Ceremony & Reception</div>
+                                                <div class="dress-code-description">Elegant Beach Formal<br>Light fabrics encouraged</div>
+                                            </div>
+                                            <div class="dress-code-item">
+                                                <div class="dress-code-category">After Party</div>
+                                                <div class="dress-code-description">Beach Chic<br>Comfortable & Festive</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- RSVP -->
+                                    <div class="detail-section">
+                                        <h2 class="section-title">
+                                            <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                            </svg>
+                                            RSVP
+                                        </h2>
+
+                                        <div class="rsvp-content">
+                                            <p class="rsvp-text">
+                                                Please confirm your attendance by June 1, 2026.<br>
+                                                We can't wait to celebrate with you!
+                                            </p>
+                                            <a href="mailto:jeremy.claudia.wedding@example.com?subject=RSVP%20-%20Jeremy%20%26%20Claudia%27s%20Wedding" class="rsvp-button">
+                                                CONFIRM ATTENDANCE
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -971,170 +1350,30 @@
         <p>Click or Tap to Flip Card</p>
     </div>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- 3D Card Flip -->
-        <div class="card-scene">
-            <div class="card-3d" id="card3d">
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <svg class="music-icon" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+        <span class="music-text">Click to Play Music</span>
+    </div>
 
-                <!-- Card Front -->
-                <div class="card-face card-front">
-                    <!-- Art Deco Corner Ornaments -->
-                    <div class="art-deco-corner corner-top-left"></div>
-                    <div class="art-deco-corner corner-top-right"></div>
-                    <div class="art-deco-corner corner-bottom-left"></div>
-                    <div class="art-deco-corner corner-bottom-right"></div>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="./assets/audio/Magical.mp3" type="audio/mpeg">
+    </audio>
 
-                    <div class="front-script">Together Forever</div>
-                    <h1 class="front-names">
-                        Jane<span class="front-ampersand">&</span>Joe
-                    </h1>
-                    <div class="front-date">JULY 12, 2026</div>
-
-                    <!-- Countdown Timer -->
-                    <div class="countdown-container">
-                        <div class="countdown-box">
-                            <div class="countdown-number" id="days">000</div>
-                            <div class="countdown-label">Days</div>
-                        </div>
-                        <div class="countdown-box">
-                            <div class="countdown-number" id="hours">00</div>
-                            <div class="countdown-label">Hours</div>
-                        </div>
-                        <div class="countdown-box">
-                            <div class="countdown-number" id="minutes">00</div>
-                            <div class="countdown-label">Minutes</div>
-                        </div>
-                        <div class="countdown-box">
-                            <div class="countdown-number" id="seconds">00</div>
-                            <div class="countdown-label">Seconds</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card Back -->
-                <div class="card-face card-back">
-                    <div class="event-details">
-                        <div class="back-header">
-                            <h2 class="back-title">Join Us in Paradise</h2>
-                            <p class="back-subtitle">Montego Bay, Jamaica</p>
-                        </div>
-
-                        <!-- Venue Photo Thumbnail -->
-                        <div class="venue-photo">
-                            <img src="./assets/images/Resort Gallery 1.jpg" alt="Sandals Royal Caribbean Resort">
-                        </div>
-
-                        <!-- Date & Time -->
-                        <div class="detail-section">
-                            <div class="detail-header">
-                                <svg class="detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/>
-                                </svg>
-                                <h3 class="detail-title">When</h3>
-                            </div>
-                            <div class="detail-content">
-                                <p><strong>Saturday, July 12, 2026</strong></p>
-                                <p>Ceremony begins at 4:00 PM</p>
-                            </div>
-                        </div>
-
-                        <!-- Location -->
-                        <div class="detail-section">
-                            <div class="detail-header">
-                                <svg class="detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
-                                </svg>
-                                <h3 class="detail-title">Where</h3>
-                            </div>
-                            <div class="detail-content">
-                                <p><strong>Sandals Royal Caribbean</strong></p>
-                                <p>Montego Bay, Jamaica</p>
-                                <p>All-Inclusive Luxury Resort & Private Island</p>
-                            </div>
-                        </div>
-
-                        <!-- Schedule with Visual Timeline -->
-                        <div class="detail-section">
-                            <div class="detail-header">
-                                <svg class="detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-                                </svg>
-                                <h3 class="detail-title">Schedule</h3>
-                            </div>
-                            <div class="detail-content">
-                                <div class="timeline-container">
-                                    <div class="timeline-line"></div>
-
-                                    <div class="timeline-item ceremony">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-time">4:00 PM</div>
-                                        <div class="timeline-event">Ceremony</div>
-                                        <div class="timeline-location">Beachfront Gazebo</div>
-                                    </div>
-
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-time">5:30 PM</div>
-                                        <div class="timeline-event">Cocktail Hour</div>
-                                        <div class="timeline-location">Sunset Terrace</div>
-                                    </div>
-
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-time">7:00 PM</div>
-                                        <div class="timeline-event">Reception</div>
-                                        <div class="timeline-location">Oceanview Pavilion</div>
-                                    </div>
-
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-time">10:00 PM</div>
-                                        <div class="timeline-event">After Party</div>
-                                        <div class="timeline-location">Beach Bar</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Dress Code -->
-                        <div class="detail-section">
-                            <div class="detail-header">
-                                <svg class="detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>
-                                </svg>
-                                <h3 class="detail-title">Attire</h3>
-                            </div>
-                            <div class="detail-content">
-                                <p><strong>Beach Formal</strong></p>
-                                <p>Light, elegant attire suitable for a tropical beach setting. Think linen suits, flowing dresses, and sandals.</p>
-                            </div>
-                        </div>
-
-                        <!-- RSVP with Enhanced Button -->
-                        <div class="rsvp-section">
-                            <div class="detail-header" style="justify-content: center;">
-                                <svg class="detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
-                                </svg>
-                                <h3 class="detail-title">RSVP</h3>
-                            </div>
-                            <p style="color: var(--medium-gray); margin-bottom: 15px;">Please respond by <strong style="color: var(--light-gray);">May 1, 2026</strong></p>
-                            <a href="mailto:janeandjoe@example.com?subject=Wedding RSVP" class="rsvp-button">
-                                Send RSVP
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
+    <!-- Social Share Banner -->
+    <div class="social-share">
+        <p>#JeremyAndClaudia2026 💍✨</p>
     </div>
 
     <script>
-        // ==================== COUNTDOWN TIMER ====================
+        // ===================================
+        // PHASE 1: Core Functionality
+        // ===================================
+
+        // Countdown Timer
         const weddingDate = new Date('2026-07-12T16:00:00').getTime();
 
         function updateCountdown() {
@@ -1152,7 +1391,6 @@
             document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
 
             if (distance < 0) {
-                clearInterval(countdownInterval);
                 document.getElementById('days').textContent = '000';
                 document.getElementById('hours').textContent = '00';
                 document.getElementById('minutes').textContent = '00';
@@ -1160,46 +1398,33 @@
             }
         }
 
-        const countdownInterval = setInterval(updateCountdown, 1000);
         updateCountdown();
+        setInterval(updateCountdown, 1000);
 
-        // ==================== MUSIC PLAYER ====================
-        const musicPlayer = document.getElementById('musicPlayer');
-        const backgroundMusic = document.getElementById('backgroundMusic');
-        const musicText = document.querySelector('.music-text');
-        let isPlaying = false;
+        // ===================================
+        // PHASE 5: Touch & Interaction
+        // ===================================
 
-        musicPlayer.addEventListener('click', function() {
-            if (isPlaying) {
-                backgroundMusic.pause();
-                musicText.textContent = 'Click to Play Music';
-                isPlaying = false;
-            } else {
-                backgroundMusic.play();
-                musicText.textContent = 'Music Playing';
-                isPlaying = true;
-            }
-        });
-
-        // ==================== CARD FLIP ====================
+        // 3D Card Flip
         const card3d = document.getElementById('card3d');
         const flipInstructions = document.getElementById('flipInstructions');
-        let isFlipped = false;
-        let touchStartX = 0;
-        let touchEndX = 0;
+        let hasFlipped = false;
 
         // Click/Tap to flip
         card3d.addEventListener('click', function() {
-            isFlipped = !isFlipped;
-            if (isFlipped) {
-                card3d.classList.add('flipped');
-                flipInstructions.classList.add('hidden');
-            } else {
-                card3d.classList.remove('flipped');
+            card3d.classList.toggle('flipped');
+            if (!hasFlipped) {
+                hasFlipped = true;
+                setTimeout(() => {
+                    flipInstructions.classList.add('hidden');
+                }, 2000);
             }
         });
 
-        // Touch gesture support for mobile
+        // Touch gestures for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
         card3d.addEventListener('touchstart', function(event) {
             touchStartX = event.changedTouches[0].screenX;
         }, {passive: true});
@@ -1214,36 +1439,96 @@
             const swipeDistance = touchEndX - touchStartX;
 
             if (Math.abs(swipeDistance) > swipeThreshold) {
-                isFlipped = !isFlipped;
-                if (isFlipped) {
-                    card3d.classList.add('flipped');
-                    flipInstructions.classList.add('hidden');
-                } else {
-                    card3d.classList.remove('flipped');
+                card3d.classList.toggle('flipped');
+                if (!hasFlipped) {
+                    hasFlipped = true;
+                    setTimeout(() => {
+                        flipInstructions.classList.add('hidden');
+                    }, 2000);
                 }
             }
         }
 
-        // Keyboard accessibility
+        // Keyboard navigation (accessibility)
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Enter' || event.key === ' ') {
-                isFlipped = !isFlipped;
-                if (isFlipped) {
-                    card3d.classList.add('flipped');
-                    flipInstructions.classList.add('hidden');
-                } else {
-                    card3d.classList.remove('flipped');
-                }
+                event.preventDefault();
+                card3d.classList.toggle('flipped');
             }
         });
 
-        // Hide flip instructions after first flip
+        // ===================================
+        // Music Player
+        // ===================================
+
+        const musicPlayer = document.getElementById('musicPlayer');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const musicText = musicPlayer.querySelector('.music-text');
+        let isPlaying = false;
+
+        musicPlayer.addEventListener('click', function() {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                musicText.textContent = 'Click to Play Music';
+                isPlaying = false;
+            } else {
+                backgroundMusic.play().catch(error => {
+                    console.log('Audio playback failed:', error);
+                });
+                musicText.textContent = 'Music Playing ♫';
+                isPlaying = true;
+            }
+        });
+
+        // Auto-hide flip instructions after first interaction
         setTimeout(() => {
-            if (!isFlipped) {
-                flipInstructions.style.opacity = '1';
+            if (!hasFlipped) {
+                flipInstructions.style.animation = 'pulse-glow-instructions 1.5s ease-in-out infinite';
             }
         }, 5000);
-    </script>
 
+        // ===================================
+        // Performance Optimizations
+        // ===================================
+
+        // Lazy load non-critical images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            const lazyImages = document.querySelectorAll('img.lazy');
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+
+        // Reduce animations on low-power mode (iOS)
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.style.setProperty('--transition-slow', '0.1s');
+            document.documentElement.style.setProperty('--transition-medium', '0.05s');
+        }
+
+        // ===================================
+        // Analytics (optional - placeholder)
+        // ===================================
+
+        // Track card flips
+        card3d.addEventListener('click', function() {
+            // Send analytics event
+            console.log('Card flipped');
+        });
+
+        // Track RSVP clicks
+        document.querySelector('.rsvp-button')?.addEventListener('click', function() {
+            // Send analytics event
+            console.log('RSVP button clicked');
+        });
+    </script>
 </body>
 </html>

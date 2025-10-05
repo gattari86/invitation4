@@ -1,0 +1,21 @@
+{
+  "name": "wedding-invitation-3d-flip",
+  "version": "1.0.0",
+  "description": "A stunning monochrome wedding invitation featuring an envelope opening animation followed by an interactive 3D card flip experience.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gattari86/invitation4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/gattari86/invitation4/issues"
+  },
+  "homepage": "https://github.com/gattari86/invitation4#readme"
+}
