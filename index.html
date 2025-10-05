@@ -60,7 +60,7 @@
             position: relative;
         }
 
-        /* ==================== PREMIUM DECORATIVE BACKGROUND PATTERN ==================== */
+        /* ==================== ENHANCED PREMIUM DECORATIVE BACKGROUND ==================== */
         body::before {
             content: '';
             position: fixed;
@@ -69,7 +69,7 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            opacity: 0.03;
+            opacity: 0.08; /* INCREASED from 0.03 for more visibility */
             background-image:
                 repeating-linear-gradient(45deg, transparent, transparent 35px, var(--medium-gray) 35px, var(--medium-gray) 70px),
                 repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--warm-dark-gray) 35px, var(--warm-dark-gray) 70px);
@@ -84,8 +84,8 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(76, 70, 70, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(138, 138, 138, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 30%, rgba(76, 70, 70, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(138, 138, 138, 0.15) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -255,7 +255,7 @@
 
         .flip-instructions p {
             font-size: 0.9rem;
-            color: var(--light-gray);
+            color: #000000;
             text-align: center;
             font-weight: 300;
             letter-spacing: 1px;
@@ -277,7 +277,7 @@
             }
         }
 
-        /* ==================== 3D CARD FLIP (FIXED - STAYS IN PLACE) ==================== */
+        /* ==================== 3D CARD FLIP ==================== */
         .card-scene {
             width: 100%;
             max-width: 800px;
@@ -317,7 +317,127 @@
             border: 1px solid var(--medium-gray);
         }
 
-        /* ==================== CARD FRONT ==================== */
+        /* ==================== ART DECO CORNER ORNAMENTS ==================== */
+        .art-deco-corner {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            pointer-events: none;
+        }
+
+        .corner-top-left {
+            top: 20px;
+            left: 20px;
+            border-top: 2px solid var(--medium-gray);
+            border-left: 2px solid var(--medium-gray);
+        }
+
+        .corner-top-left::before,
+        .corner-top-left::after {
+            content: '';
+            position: absolute;
+            background: var(--medium-gray);
+        }
+
+        .corner-top-left::before {
+            width: 20px;
+            height: 2px;
+            top: 10px;
+            left: 0;
+        }
+
+        .corner-top-left::after {
+            width: 2px;
+            height: 20px;
+            top: 0;
+            left: 10px;
+        }
+
+        .corner-top-right {
+            top: 20px;
+            right: 20px;
+            border-top: 2px solid var(--medium-gray);
+            border-right: 2px solid var(--medium-gray);
+        }
+
+        .corner-top-right::before,
+        .corner-top-right::after {
+            content: '';
+            position: absolute;
+            background: var(--medium-gray);
+        }
+
+        .corner-top-right::before {
+            width: 20px;
+            height: 2px;
+            top: 10px;
+            right: 0;
+        }
+
+        .corner-top-right::after {
+            width: 2px;
+            height: 20px;
+            top: 0;
+            right: 10px;
+        }
+
+        .corner-bottom-left {
+            bottom: 20px;
+            left: 20px;
+            border-bottom: 2px solid var(--medium-gray);
+            border-left: 2px solid var(--medium-gray);
+        }
+
+        .corner-bottom-left::before,
+        .corner-bottom-left::after {
+            content: '';
+            position: absolute;
+            background: var(--medium-gray);
+        }
+
+        .corner-bottom-left::before {
+            width: 20px;
+            height: 2px;
+            bottom: 10px;
+            left: 0;
+        }
+
+        .corner-bottom-left::after {
+            width: 2px;
+            height: 20px;
+            bottom: 0;
+            left: 10px;
+        }
+
+        .corner-bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-bottom: 2px solid var(--medium-gray);
+            border-right: 2px solid var(--medium-gray);
+        }
+
+        .corner-bottom-right::before,
+        .corner-bottom-right::after {
+            content: '';
+            position: absolute;
+            background: var(--medium-gray);
+        }
+
+        .corner-bottom-right::before {
+            width: 20px;
+            height: 2px;
+            bottom: 10px;
+            right: 0;
+        }
+
+        .corner-bottom-right::after {
+            width: 2px;
+            height: 20px;
+            bottom: 0;
+            right: 10px;
+        }
+
+        /* ==================== CARD FRONT WITH DECORATIVE FRAME ==================== */
         .card-front {
             background: linear-gradient(135deg,
                 rgba(22, 22, 22, 0.95) 0%,
@@ -345,6 +465,20 @@
             background-size: cover;
             background-position: center;
             opacity: 0.15;
+            z-index: 0;
+        }
+
+        /* Decorative frame border */
+        .card-front::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid rgba(165, 165, 165, 0.3);
+            border-radius: 15px;
+            pointer-events: none;
             z-index: 0;
         }
 
@@ -445,7 +579,7 @@
             }
         }
 
-        /* ==================== CARD BACK ==================== */
+        /* ==================== CARD BACK WITH ENHANCEMENTS ==================== */
         .card-back {
             background: linear-gradient(135deg,
                 rgba(28, 28, 28, 0.98) 0%,
@@ -500,26 +634,64 @@
             text-transform: uppercase;
         }
 
-        .detail-section {
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(138, 138, 138, 0.2);
+        /* ENHANCED: Venue Photo Thumbnail */
+        .venue-photo {
+            width: 100%;
+            max-width: 400px;
+            height: 120px;
+            margin: 20px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--medium-gray);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .detail-section:last-child {
-            border-bottom: none;
+        .venue-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .venue-photo:hover img {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        .detail-section {
+            margin-bottom: 35px;
+            padding-bottom: 35px;
+            position: relative;
+        }
+
+        /* ENHANCED: Decorative Section Dividers */
+        .detail-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--medium-gray), transparent);
+        }
+
+        .detail-section:last-child::after {
+            display: none;
         }
 
         .detail-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
         .detail-icon {
-            width: 24px;
-            height: 24px;
+            width: 28px; /* INCREASED from 24px */
+            height: 28px;
             stroke: var(--light-gray);
             stroke-width: 2;
             flex-shrink: 0;
@@ -527,20 +699,20 @@
 
         .detail-title {
             font-family: var(--font-display);
-            font-size: 1.3rem;
+            font-size: 1.4rem; /* INCREASED from 1.3rem */
             color: var(--light-gray);
             font-weight: 500;
         }
 
         .detail-content {
-            margin-left: 36px;
+            margin-left: 43px;
             color: var(--medium-gray);
             line-height: 1.8;
             font-size: 0.95rem;
         }
 
         .detail-content p {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .detail-content strong {
@@ -548,33 +720,153 @@
             font-weight: 500;
         }
 
-        .schedule-item {
-            margin-bottom: 15px;
+        /* ==================== VISUAL TIMELINE FOR SCHEDULE ==================== */
+        .timeline-container {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--medium-gray) 0%, var(--warm-dark-gray) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
             padding-left: 20px;
-            border-left: 2px solid var(--warm-dark-gray);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -29px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            border: 2px solid var(--dark-charcoal);
+            box-shadow: 0 0 10px rgba(165, 165, 165, 0.5);
+        }
+
+        /* ENHANCED: Make ceremony larger/bolder */
+        .timeline-item.ceremony .timeline-time {
+            font-size: 1.3rem; /* Larger */
+            color: var(--light-gray);
+        }
+
+        .timeline-item.ceremony .timeline-dot {
+            width: 16px;
+            height: 16px;
+            left: -31px;
+            background: var(--chrome);
+            box-shadow: 0 0 15px rgba(165, 165, 165, 0.8);
+        }
+
+        .timeline-item.ceremony .timeline-event {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .timeline-time {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-event {
+            font-size: 1rem;
+            color: var(--light-gray);
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .timeline-location {
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+            font-style: italic;
+        }
+
+        /* ENHANCED: RSVP Button with Pulse Animation */
+        .rsvp-section {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
         }
 
         .rsvp-button {
             display: inline-block;
             background: linear-gradient(135deg, var(--warm-dark-gray), var(--medium-gray));
             color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
+            padding: 15px 40px; /* INCREASED padding */
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 500;
-            letter-spacing: 1px;
+            font-weight: 600; /* INCREASED weight */
+            font-size: 1rem; /* INCREASED size */
+            letter-spacing: 1.5px;
             transition: all 0.3s ease;
-            border: 1px solid var(--light-gray);
-            margin-top: 10px;
+            border: 2px solid var(--light-gray); /* INCREASED border */
+            margin-top: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            animation: rsv pPulse 3s ease-in-out infinite;
         }
 
         .rsvp-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(165, 165, 165, 0.3);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(165, 165, 165, 0.4);
+            background: linear-gradient(135deg, var(--medium-gray), var(--light-gray));
+        }
+
+        @keyframes rsvpPulse {
+            0%, 100% {
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(165, 165, 165, 0.5);
+            }
         }
 
         /* ==================== MOBILE RESPONSIVE ==================== */
         @media (max-width: 768px) {
+            .art-deco-corner {
+                width: 50px;
+                height: 50px;
+            }
+
+            .corner-top-left,
+            .corner-top-right,
+            .corner-bottom-left,
+            .corner-bottom-right {
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+            }
+
+            .corner-top-left::before,
+            .corner-top-right::before,
+            .corner-bottom-left::before,
+            .corner-bottom-right::before {
+                width: 12px;
+            }
+
+            .corner-top-left::after,
+            .corner-top-right::after,
+            .corner-bottom-left::after,
+            .corner-bottom-right::after {
+                height: 12px;
+            }
+
             .front-script {
                 font-size: 1.5rem;
             }
@@ -619,6 +911,10 @@
                 font-size: 2rem;
             }
 
+            .venue-photo {
+                height: 100px;
+            }
+
             .detail-title {
                 font-size: 1.1rem;
             }
@@ -626,6 +922,10 @@
             .detail-content {
                 font-size: 0.85rem;
                 margin-left: 0;
+            }
+
+            .timeline-container {
+                padding-left: 30px;
             }
 
             .card-front::before {
@@ -679,6 +979,12 @@
 
                 <!-- Card Front -->
                 <div class="card-face card-front">
+                    <!-- Art Deco Corner Ornaments -->
+                    <div class="art-deco-corner corner-top-left"></div>
+                    <div class="art-deco-corner corner-top-right"></div>
+                    <div class="art-deco-corner corner-bottom-left"></div>
+                    <div class="art-deco-corner corner-bottom-right"></div>
+
                     <div class="front-script">Together Forever</div>
                     <h1 class="front-names">
                         Jane<span class="front-ampersand">&</span>Joe
@@ -714,6 +1020,11 @@
                             <p class="back-subtitle">Montego Bay, Jamaica</p>
                         </div>
 
+                        <!-- Venue Photo Thumbnail -->
+                        <div class="venue-photo">
+                            <img src="./assets/images/Resort Gallery 1.jpg" alt="Sandals Royal Caribbean Resort">
+                        </div>
+
                         <!-- Date & Time -->
                         <div class="detail-section">
                             <div class="detail-header">
@@ -744,7 +1055,7 @@
                             </div>
                         </div>
 
-                        <!-- Schedule -->
+                        <!-- Schedule with Visual Timeline -->
                         <div class="detail-section">
                             <div class="detail-header">
                                 <svg class="detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -753,21 +1064,36 @@
                                 <h3 class="detail-title">Schedule</h3>
                             </div>
                             <div class="detail-content">
-                                <div class="schedule-item">
-                                    <p><strong>4:00 PM</strong> - Ceremony</p>
-                                    <p>Beachfront Gazebo</p>
-                                </div>
-                                <div class="schedule-item">
-                                    <p><strong>5:30 PM</strong> - Cocktail Hour</p>
-                                    <p>Sunset Terrace</p>
-                                </div>
-                                <div class="schedule-item">
-                                    <p><strong>7:00 PM</strong> - Reception</p>
-                                    <p>Oceanview Pavilion</p>
-                                </div>
-                                <div class="schedule-item">
-                                    <p><strong>10:00 PM</strong> - After Party</p>
-                                    <p>Beach Bar</p>
+                                <div class="timeline-container">
+                                    <div class="timeline-line"></div>
+
+                                    <div class="timeline-item ceremony">
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-time">4:00 PM</div>
+                                        <div class="timeline-event">Ceremony</div>
+                                        <div class="timeline-location">Beachfront Gazebo</div>
+                                    </div>
+
+                                    <div class="timeline-item">
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-time">5:30 PM</div>
+                                        <div class="timeline-event">Cocktail Hour</div>
+                                        <div class="timeline-location">Sunset Terrace</div>
+                                    </div>
+
+                                    <div class="timeline-item">
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-time">7:00 PM</div>
+                                        <div class="timeline-event">Reception</div>
+                                        <div class="timeline-location">Oceanview Pavilion</div>
+                                    </div>
+
+                                    <div class="timeline-item">
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-time">10:00 PM</div>
+                                        <div class="timeline-event">After Party</div>
+                                        <div class="timeline-location">Beach Bar</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -786,20 +1112,18 @@
                             </div>
                         </div>
 
-                        <!-- RSVP -->
-                        <div class="detail-section">
-                            <div class="detail-header">
+                        <!-- RSVP with Enhanced Button -->
+                        <div class="rsvp-section">
+                            <div class="detail-header" style="justify-content: center;">
                                 <svg class="detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
                                 </svg>
                                 <h3 class="detail-title">RSVP</h3>
                             </div>
-                            <div class="detail-content">
-                                <p>Please respond by <strong>May 1, 2026</strong></p>
-                                <a href="mailto:janeandjoe@example.com?subject=Wedding RSVP" class="rsvp-button">
-                                    Send RSVP
-                                </a>
-                            </div>
+                            <p style="color: var(--medium-gray); margin-bottom: 15px;">Please respond by <strong style="color: var(--light-gray);">May 1, 2026</strong></p>
+                            <a href="mailto:janeandjoe@example.com?subject=Wedding RSVP" class="rsvp-button">
+                                Send RSVP
+                            </a>
                         </div>
 
                     </div>
