@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Jeremy & Claudia - July 12, 2026 - Sandals Royal Caribbean, Jamaica</title>
+    <title>Jane & Joe - July 12, 2026 - Sandals Royal Caribbean, Jamaica</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Join us for the wedding of Jeremy and Claudia on July 12, 2026, at Sandals Royal Caribbean, Montego Bay, Jamaica">
-    <meta name="keywords" content="Jeremy Claudia Wedding, Destination Wedding Jamaica, Sandals Royal Caribbean Wedding">
+    <meta name="description" content="Join us for the wedding of Jane and Joe on July 12, 2026, at Sandals Royal Caribbean, Montego Bay, Jamaica">
+    <meta name="keywords" content="Jane Joe Wedding, Destination Wedding Jamaica, Sandals Royal Caribbean Wedding">
 
     <!-- Social Media Meta Tags -->
-    <meta property="og:title" content="Jeremy & Claudia - Wedding Invitation">
+    <meta property="og:title" content="Jane & Joe - Wedding Invitation">
     <meta property="og:description" content="July 12, 2026 - Sandals Royal Caribbean, Montego Bay, Jamaica">
     <meta property="og:image" content="./assets/images/Couple Gallery 2.jpg">
     <meta property="og:url" content="https://invitation4-pied.vercel.app">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Jeremy & Claudia - Wedding Invitation">
+    <meta name="twitter:title" content="Jane & Joe - Wedding Invitation">
     <meta name="twitter:description" content="July 12, 2026 - Sandals Royal Caribbean, Jamaica">
     <meta name="twitter:image" content="./assets/images/Couple Gallery 2.jpg">
 
@@ -32,6 +32,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
         /* ===================================
@@ -107,6 +110,54 @@
             min-height: 100vh;
             position: relative;
             line-height: 1.6;
+        }
+
+        /* ===================================
+           MUSIC PLAYER - TOP RIGHT
+           =================================== */
+
+        .music-player {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(139, 157, 131, 0.3);
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            box-shadow: 0 4px 20px rgba(45, 74, 62, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .music-player:hover {
+            opacity: 1;
+            box-shadow: 0 6px 30px rgba(45, 74, 62, 0.25);
+            transform: scale(1.05);
+        }
+
+        .music-player.playing {
+            animation: music-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes music-pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(139, 157, 131, 0.15);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(139, 157, 131, 0.35);
+            }
+        }
+
+        .music-player i {
+            color: var(--sage-green);
+            font-size: 24px;
         }
 
         /* ===================================
@@ -206,6 +257,66 @@
         }
 
         /* ===================================
+           HERO SECTION WITH BACKGROUND IMAGE
+           =================================== */
+
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cream);
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.25;
+            filter: blur(2px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: var(--space-xl) var(--space-md);
+            max-width: 900px;
+            background: linear-gradient(135deg,
+                rgba(255, 254, 242, 0.92) 0%,
+                rgba(245, 241, 232, 0.95) 100%);
+            border-radius: 20px;
+            box-shadow:
+                0 20px 60px rgba(45, 74, 62, 0.15),
+                0 8px 20px rgba(45, 74, 62, 0.08);
+            border: 2px solid rgba(139, 157, 131, 0.2);
+            backdrop-filter: blur(10px);
+            animation: hero-entrance 1.2s var(--bounce);
+        }
+
+        @keyframes hero-entrance {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ===================================
            CONTAINER & GRID SYSTEM
            =================================== */
 
@@ -247,12 +358,15 @@
         .col-4 { grid-column: span 4; }
 
         @media (min-width: 768px) {
+            .col-md-4 { grid-column: span 4; }
             .col-md-6 { grid-column: span 6; }
             .col-md-8 { grid-column: span 8; }
             .col-md-center { grid-column: 2 / 8; }
         }
 
         @media (min-width: 1024px) {
+            .col-lg-3 { grid-column: span 3; }
+            .col-lg-4 { grid-column: span 4; }
             .col-lg-6 { grid-column: span 6; }
             .col-lg-8 { grid-column: span 8; }
             .col-lg-10 { grid-column: span 10; }
@@ -329,12 +443,6 @@
             animation-delay: -2s;
         }
 
-        .vine-decoration {
-            width: 100%;
-            height: auto;
-            animation: vine-grow 2s ease-out forwards;
-        }
-
         @keyframes sway-left {
             0%, 100% {
                 transform: rotate(0deg) translateX(0);
@@ -353,105 +461,22 @@
             }
         }
 
-        @keyframes vine-grow {
-            from {
-                opacity: 0;
-                transform: scaleY(0);
-                transform-origin: top;
-            }
-            to {
-                opacity: 1;
-                transform: scaleY(1);
-            }
-        }
-
         /* ===================================
-           CARD SYSTEM - ORGANIC STYLE
+           INVITATION CARD SECTIONS
            =================================== */
 
-        .invitation-wrapper {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--space-xl) 0;
+        .section {
+            padding: var(--space-xxxl) 0;
             position: relative;
         }
 
-        .invitation-card {
-            background: linear-gradient(135deg,
-                rgba(255, 254, 242, 0.95) 0%,
-                rgba(245, 241, 232, 0.98) 100%);
-            border-radius: 20px;
-            padding: var(--space-xxl) var(--space-lg);
-            box-shadow:
-                0 20px 60px rgba(45, 74, 62, 0.15),
-                0 8px 20px rgba(45, 74, 62, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-            position: relative;
-            overflow: hidden;
-            border: 2px solid rgba(139, 157, 131, 0.2);
-            backdrop-filter: blur(10px);
-            animation: card-entrance 1.2s var(--bounce);
-            max-width: 900px;
-            width: 100%;
-            margin: 0 var(--space-md);
+        .section-light {
+            background: var(--ivory);
         }
 
-        @keyframes card-entrance {
-            from {
-                opacity: 0;
-                transform: translateY(50px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        .section-accent {
+            background: var(--sand);
         }
-
-        /* Paper texture overlay on card */
-        .invitation-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperTexture'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='5' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperTexture)' opacity='0.03'/%3E%3C/svg%3E");
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .invitation-card > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Floral border decoration */
-        .card-border-decoration {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            border: 3px solid transparent;
-            border-radius: 20px;
-            background:
-                linear-gradient(var(--ivory), var(--ivory)) padding-box,
-                linear-gradient(135deg,
-                    var(--sage-green-light),
-                    var(--terracotta-light),
-                    var(--soft-peach),
-                    var(--sage-green-light)
-                ) border-box;
-            opacity: 0.3;
-            z-index: 0;
-        }
-
-        /* ===================================
-           HEADER SECTION
-           =================================== */
 
         .invitation-header {
             text-align: center;
@@ -545,12 +570,54 @@
         }
 
         /* ===================================
-           EVENT DETAILS SECTION
+           COUNTDOWN TIMER
            =================================== */
 
-        .event-details {
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
             margin: var(--space-xxl) 0;
+            flex-wrap: wrap;
         }
+
+        .countdown-item {
+            text-align: center;
+            min-width: 100px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: var(--space-lg);
+            border-radius: 15px;
+            border: 2px solid rgba(139, 157, 131, 0.2);
+            box-shadow: 0 4px 20px rgba(45, 74, 62, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .countdown-number {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--terracotta);
+            display: block;
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+
+        .countdown-label {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--forest-green-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 400;
+        }
+
+        /* ===================================
+           EVENT DETAILS SECTION
+           =================================== */
 
         .detail-card {
             background: rgba(255, 255, 255, 0.6);
@@ -562,6 +629,7 @@
             transition: all var(--transition-medium);
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .detail-card::before {
@@ -588,9 +656,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: var(--terracotta);
             animation: icon-pulse 2s ease-in-out infinite;
+        }
+
+        .detail-icon i {
+            font-size: 2.5rem;
+            color: var(--terracotta);
         }
 
         @keyframes icon-pulse {
@@ -604,19 +675,12 @@
             font-weight: 600;
             color: var(--forest-green);
             margin-bottom: var(--space-xs);
-            text-align: center;
         }
 
         .detail-content {
-            text-align: center;
             color: var(--forest-green-medium);
             font-size: 1rem;
             line-height: 1.6;
-        }
-
-        .detail-time {
-            font-weight: 700;
-            color: var(--terracotta);
         }
 
         /* ===================================
@@ -769,7 +833,43 @@
         }
 
         /* ===================================
-           VENUE SECTION
+           GALLERY SECTIONS
+           =================================== */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-xl) 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            aspect-ratio: 1;
+            box-shadow: 0 4px 20px rgba(45, 74, 62, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(45, 74, 62, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ===================================
+           VENUE & RSVP SECTIONS
            =================================== */
 
         .venue-section {
@@ -829,10 +929,6 @@
             box-shadow: 0 6px 25px rgba(139, 157, 131, 0.4);
             background: linear-gradient(135deg, var(--sage-green-light), var(--sage-green));
         }
-
-        /* ===================================
-           RSVP SECTION
-           =================================== */
 
         .rsvp-section {
             margin: var(--space-xxl) 0;
@@ -951,10 +1047,8 @@
 
         /* High contrast mode support */
         @media (prefers-contrast: high) {
-            .invitation-card {
-                border: 3px solid var(--forest-green);
-            }
-            .detail-card {
+            .detail-card,
+            .venue-card {
                 border: 2px solid var(--forest-green);
             }
         }
@@ -964,7 +1058,11 @@
            =================================== */
 
         @media (max-width: 767px) {
-            .invitation-card {
+            .section {
+                padding: var(--space-xxl) var(--space-md);
+            }
+
+            .hero-content {
                 padding: var(--space-lg) var(--space-md);
                 margin: 0 var(--space-sm);
             }
@@ -985,16 +1083,32 @@
             .timeline {
                 padding-left: var(--space-md);
             }
+
+            .countdown {
+                gap: var(--space-sm);
+            }
+
+            .countdown-item {
+                min-width: 80px;
+                padding: var(--space-md) var(--space-sm);
+            }
+
+            .music-player {
+                top: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+            }
         }
 
         @media (min-width: 768px) and (max-width: 1023px) {
-            .invitation-card {
+            .hero-content {
                 padding: var(--space-xl) var(--space-lg);
             }
         }
 
         @media (min-width: 1024px) {
-            .invitation-wrapper {
+            .section {
                 padding: var(--space-xxxl) 0;
             }
 
@@ -1014,13 +1128,9 @@
 
             body::before,
             body::after,
-            .watercolor-blob {
+            .watercolor-blob,
+            .music-player {
                 display: none;
-            }
-
-            .invitation-card {
-                box-shadow: none;
-                border: 2px solid #ccc;
             }
 
             .rsvp-button,
@@ -1033,17 +1143,26 @@
     </style>
 </head>
 <body>
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <i class="ph ph-music-note"></i>
+        <audio id="backgroundMusic" loop>
+            <source src="./assets/audio/Magical.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
     <!-- Watercolor Blob Decorations -->
     <div class="watercolor-blob blob-1"></div>
     <div class="watercolor-blob blob-2"></div>
     <div class="watercolor-blob blob-3"></div>
 
-    <!-- Main Invitation Container -->
-    <div class="invitation-wrapper">
-        <div class="invitation-card">
-            <!-- Card Border Decoration -->
-            <div class="card-border-decoration"></div>
+    <!-- Hero Section with Background -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <img src="./assets/images/Hero Image.jpg" alt="Jane and Joe" loading="eager">
+        </div>
 
+        <div class="hero-content">
             <!-- Botanical Decorations -->
             <svg class="botanical-decoration leaf-left" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10,75 Q40,40 75,10 Q60,50 50,75 Q60,100 75,140 Q40,110 10,75 Z"
@@ -1067,13 +1186,12 @@
                       opacity="0.4"/>
             </svg>
 
-            <!-- Header Section -->
             <header class="invitation-header">
                 <p class="invitation-subtitle">Together with their families</p>
                 <h1 class="couple-names">
-                    Jeremy
+                    Jane
                     <span class="ampersand">&</span>
-                    Claudia
+                    Joe
                 </h1>
                 <p class="invitation-subtitle">Invite you to celebrate their wedding</p>
 
@@ -1096,138 +1214,243 @@
                 <p class="detail-content">Montego Bay, Jamaica</p>
             </header>
 
-            <!-- Event Timeline -->
-            <section class="timeline-section">
-                <h2 class="timeline-title">Celebration Timeline</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-time">4:00 PM</div>
-                            <div class="timeline-event">Ceremony</div>
-                            <div class="timeline-location">Beachfront Gazebo</div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-time">5:30 PM</div>
-                            <div class="timeline-event">Cocktail Hour</div>
-                            <div class="timeline-location">Sunset Terrace</div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-time">7:00 PM</div>
-                            <div class="timeline-event">Reception & Dinner</div>
-                            <div class="timeline-location">Oceanview Pavilion</div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-time">10:00 PM</div>
-                            <div class="timeline-event">After Party</div>
-                            <div class="timeline-location">Beach Bar</div>
-                        </div>
-                    </div>
+            <!-- Countdown Timer -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">--</span>
+                    <span class="countdown-label">Days</span>
                 </div>
-            </section>
-
-            <!-- Venue Information -->
-            <section class="venue-section">
-                <h2 class="venue-title">Venue</h2>
-                <div class="venue-card">
-                    <div class="detail-icon">🏝️</div>
-                    <h3 class="venue-name">Sandals Royal Caribbean</h3>
-                    <p class="venue-address">
-                        Mahoe Bay<br>
-                        Montego Bay, Jamaica
-                    </p>
-                    <a href="https://www.sandals.com/royal-caribbean/" target="_blank" rel="noopener" class="venue-link">
-                        View Resort Details
-                    </a>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">--</span>
+                    <span class="countdown-label">Hours</span>
                 </div>
-            </section>
-
-            <!-- Event Details Grid -->
-            <section class="event-details">
-                <div class="grid">
-                    <div class="col-full col-md-6 col-lg-6">
-                        <div class="detail-card">
-                            <div class="detail-icon">👗</div>
-                            <h3 class="detail-title">Attire</h3>
-                            <p class="detail-content">
-                                Semi-Formal Beach Attire<br>
-                                Light fabrics and colors encouraged
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-full col-md-6 col-lg-6">
-                        <div class="detail-card">
-                            <div class="detail-icon">🎁</div>
-                            <h3 class="detail-title">Registry</h3>
-                            <p class="detail-content">
-                                Your presence is our present!<br>
-                                If you wish to give, cash gifts are appreciated
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-full">
-                        <div class="detail-card">
-                            <div class="detail-icon">✈️</div>
-                            <h3 class="detail-title">Travel Information</h3>
-                            <p class="detail-content">
-                                Fly into Sangster International Airport (MBJ)<br>
-                                Resort transfer: 10 minutes from airport<br>
-                                Book early for best rates and availability
-                            </p>
-                        </div>
-                    </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">--</span>
+                    <span class="countdown-label">Minutes</span>
                 </div>
-            </section>
-
-            <!-- RSVP Section -->
-            <section class="rsvp-section">
-                <h2 class="rsvp-title">Join Us</h2>
-                <p class="rsvp-message">
-                    We can't wait to celebrate with you in paradise!<br>
-                    Please RSVP by May 1, 2026
-                </p>
-                <a href="mailto:jeremyandclaudia2026@example.com?subject=RSVP%20for%20Wedding" class="rsvp-button">
-                    RSVP Now
-                </a>
-            </section>
-
-            <!-- Footer -->
-            <footer class="invitation-footer">
-                <p class="footer-message">See you in Jamaica!</p>
-                <p class="footer-hashtag">#JeremyAndClaudia2026 💚</p>
-            </footer>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">--</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Event Timeline -->
+        <section class="timeline-section section">
+            <h2 class="timeline-title">Celebration Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">4:00 PM</div>
+                        <div class="timeline-event">Ceremony</div>
+                        <div class="timeline-location">Beachfront Gazebo</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">5:30 PM</div>
+                        <div class="timeline-event">Cocktail Hour</div>
+                        <div class="timeline-location">Sunset Terrace</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">7:00 PM</div>
+                        <div class="timeline-event">Reception & Dinner</div>
+                        <div class="timeline-location">Oceanview Pavilion</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Couple Gallery -->
+        <section class="section section-light">
+            <h2 class="timeline-title">Our Journey</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="./assets/images/Couple Gallery 1.jpg" alt="Jane and Joe" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/Couple Gallery 2.jpg" alt="Jane and Joe" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/Couple Gallery 3.jpg" alt="Jane and Joe" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Venue Information -->
+        <section class="venue-section section">
+            <h2 class="venue-title">Venue</h2>
+            <div class="venue-card">
+                <div class="detail-icon">
+                    <i class="ph ph-island"></i>
+                </div>
+                <h3 class="venue-name">Sandals Royal Caribbean</h3>
+                <p class="venue-address">
+                    Mahoe Bay<br>
+                    Montego Bay, Jamaica
+                </p>
+                <a href="https://www.sandals.com/royal-caribbean/" target="_blank" rel="noopener" class="venue-link">
+                    View Resort Details
+                </a>
+            </div>
+        </section>
+
+        <!-- Resort Gallery -->
+        <section class="section section-accent">
+            <h2 class="timeline-title">The Resort</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="./assets/images/Resort Gallery 1.jpg" alt="Sandals Royal Caribbean" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/Resort Gallery 2.jpg" alt="Sandals Royal Caribbean" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/Resort Gallery 3.jpg" alt="Sandals Royal Caribbean" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details Grid -->
+        <section class="section">
+            <h2 class="timeline-title">Details</h2>
+            <div class="grid">
+                <div class="col-full col-md-4 col-lg-4">
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <i class="ph ph-dress"></i>
+                        </div>
+                        <h3 class="detail-title">Attire</h3>
+                        <p class="detail-content">
+                            Tropical Beach Elegance<br>
+                            Light fabrics and colors encouraged
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-full col-md-4 col-lg-4">
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <i class="ph ph-gift"></i>
+                        </div>
+                        <h3 class="detail-title">Registry</h3>
+                        <p class="detail-content">
+                            Your presence is our present!<br>
+                            If you wish to give, cash gifts are appreciated
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-full col-md-4 col-lg-4">
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <i class="ph ph-airplane-takeoff"></i>
+                        </div>
+                        <h3 class="detail-title">Travel</h3>
+                        <p class="detail-content">
+                            Fly into Sangster International (MBJ)<br>
+                            10 minutes to resort
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="rsvp-section">
+            <h2 class="rsvp-title">Join Us in Paradise</h2>
+            <p class="rsvp-message">
+                We can't wait to celebrate with you in Jamaica!<br>
+                Please RSVP by May 1, 2026
+            </p>
+            <a href="mailto:janeandjoe2026@example.com?subject=RSVP%20for%20Wedding" class="rsvp-button">
+                RSVP Now
+            </a>
+        </section>
+
+        <!-- Footer -->
+        <footer class="invitation-footer">
+            <p class="footer-message">See you in paradise!</p>
+            <p class="footer-hashtag">#JaneAndJoeInParadise</p>
+        </footer>
     </div>
 
     <script>
-        // Lazy loading for images (if added later)
+        // ===================================
+        // MUSIC PLAYER
+        // ===================================
+        const musicPlayer = document.getElementById('musicPlayer');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        let isPlaying = false;
+
+        musicPlayer.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                musicPlayer.classList.remove('playing');
+                musicPlayer.querySelector('i').className = 'ph ph-music-note';
+            } else {
+                backgroundMusic.play();
+                musicPlayer.classList.add('playing');
+                musicPlayer.querySelector('i').className = 'ph ph-pause';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // ===================================
+        // COUNTDOWN TIMER
+        // ===================================
+        function updateCountdown() {
+            const weddingDate = new Date('July 12, 2026 16:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<p class="wedding-date">The Wedding Day is Here!</p>';
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ===================================
+        // LAZY LOADING FOR IMAGES
+        // ===================================
         if ('loading' in HTMLImageElement.prototype) {
             const images = document.querySelectorAll('img[loading="lazy"]');
             images.forEach(img => {
-                img.src = img.dataset.src;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                }
             });
         } else {
-            // Fallback for browsers that don't support lazy loading
             const script = document.createElement('script');
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
             document.body.appendChild(script);
         }
 
-        // Smooth scroll for anchor links
+        // ===================================
+        // SMOOTH SCROLL
+        // ===================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1241,7 +1464,9 @@
             });
         });
 
-        // Intersection Observer for animation triggers
+        // ===================================
+        // INTERSECTION OBSERVER FOR ANIMATIONS
+        // ===================================
         const observerOptions = {
             threshold: 0.2,
             rootMargin: '0px 0px -50px 0px'
@@ -1255,12 +1480,13 @@
             });
         }, observerOptions);
 
-        // Observe timeline items and detail cards
-        document.querySelectorAll('.timeline-item, .detail-card').forEach(el => {
+        document.querySelectorAll('.timeline-item, .detail-card, .gallery-item').forEach(el => {
             observer.observe(el);
         });
 
-        // Add parallax effect to blobs on scroll (subtle)
+        // ===================================
+        // PARALLAX EFFECT FOR BLOBS
+        // ===================================
         let ticking = false;
 
         window.addEventListener('scroll', () => {
@@ -1280,17 +1506,25 @@
             }
         });
 
-        // Accessibility: Announce page load to screen readers
+        // ===================================
+        // ACCESSIBILITY
+        // ===================================
         window.addEventListener('load', () => {
             const announcement = document.createElement('div');
             announcement.setAttribute('role', 'status');
             announcement.setAttribute('aria-live', 'polite');
-            announcement.className = 'sr-only';
-            announcement.textContent = 'Wedding invitation page loaded. Jeremy and Claudia invite you to their wedding on July 12, 2026 in Montego Bay, Jamaica.';
+            announcement.style.position = 'absolute';
+            announcement.style.left = '-10000px';
+            announcement.style.width = '1px';
+            announcement.style.height = '1px';
+            announcement.style.overflow = 'hidden';
+            announcement.textContent = 'Wedding invitation page loaded. Jane and Joe invite you to their wedding on July 12, 2026 in Montego Bay, Jamaica.';
             document.body.appendChild(announcement);
         });
 
-        // Performance: Reduce motion for users who prefer it
+        // ===================================
+        // REDUCED MOTION SUPPORT
+        // ===================================
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             document.documentElement.style.setProperty('--transition-fast', '0ms');
             document.documentElement.style.setProperty('--transition-medium', '0ms');
